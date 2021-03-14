@@ -17,9 +17,9 @@
                             <input type="text" class="form-control" />
                         </div>
                         <div class="form-group col-6">
-                            <label for="">Kulutuse tüüp</label>
+                            <label for="">Sisestuse tüüp</label>
                             <select class="form-control">
-                                <option>Kulutus</option>
+                                <option>Väljaminek</option>
                                 <option>Sissetulek</option>
                             </select>
                         </div>

@@ -4,9 +4,7 @@
             <router-link class="navbar-brand mr-auto" :to="{ name: 'home' }"
                 >Dengi</router-link
             >
-            <router-link class="btn nav-button" :to="{ name: 'insert' }"
-                >Logi sisse</router-link
-            >
+            <div class="btn nav-button">Logi sisse</div>
         </nav>
 
         <div class="mt-4 mb-4 pr-4 pl-4">

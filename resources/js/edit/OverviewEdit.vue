@@ -21,7 +21,7 @@
                             />
                         </div>
                         <div class="form-group col-6">
-                            <label for="">Kulutuse tüüp</label>
+                            <label for="">Sisestuse tüüp</label>
                             <select class="form-control">
                                 <option :bind="overviewEdit.type"
                                     >Väljaminek</option
@@ -79,11 +79,12 @@ export default {
         };
     },
     created() {
-        this.loading = false;
+        this.loading = true;
 
-        axios
-            .get(`/api/overviews/${this.$route.params.id}`)
-            .then(response => (this.overviewEdit = response.data));
+        axios.get(`/api/overviews/${this.$route.params.id}`).then(response => {
+            this.overviewEdit = response.data;
+            this.loading = false;
+        });
     }
 };
 </script>

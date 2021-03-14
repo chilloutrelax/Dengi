@@ -16,10 +16,10 @@
         </div>
         <div class="row ml-auto col-2">
             <div class="col text-right">
-                <router-link :to="{ name: 'edit', params: { id: id } }"
-                    ><i class="far fa-edit"></i
+                <router-link :to="{ name: 'edit', params: { id } }"
+                    ><i class="far fa-edit pr-1" title="Muuda kirjet"></i
                 ></router-link>
-                <i class="fas fa-trash"></i>
+                <i class="fas fa-trash" title="Kustuta kirje"></i>
             </div>
         </div>
     </div>
@@ -56,5 +56,15 @@ export default {
 
 a {
     text-decoration: none;
+}
+
+.fa-edit {
+    color: rgb(44, 153, 44);
+    font-size: 15px;
+}
+
+.fa-trash {
+    color: rgb(167, 43, 43);
+    font-size: 15px;
 }
 </style>

@@ -1927,9 +1927,10 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    this.loading = false;
+    this.loading = true;
     axios.get("/api/overviews/".concat(this.$route.params.id)).then(function (response) {
-      return _this.overviewEdit = response.data;
+      _this.overviewEdit = response.data;
+      _this.loading = false;
     });
   }
 });
@@ -1947,8 +1948,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
-//
 //
 //
 //
@@ -6939,7 +6938,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.list-fetch[data-v-51394c94] {\r\n    padding-top: 10px;\n}\n.list-fetch ul[data-v-51394c94] {\r\n    list-style: none;\n}\n.list-fetch li[data-v-51394c94] {\r\n    display: inline;\n}\n.item-top-border[data-v-51394c94] {\r\n    border-bottom: 1px dashed #031c1f;\n}\na[data-v-51394c94] {\r\n    text-decoration: none;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.list-fetch[data-v-51394c94] {\r\n    padding-top: 10px;\n}\n.list-fetch ul[data-v-51394c94] {\r\n    list-style: none;\n}\n.list-fetch li[data-v-51394c94] {\r\n    display: inline;\n}\n.item-top-border[data-v-51394c94] {\r\n    border-bottom: 1px dashed #031c1f;\n}\na[data-v-51394c94] {\r\n    text-decoration: none;\n}\n.fa-edit[data-v-51394c94] {\r\n    color: rgb(44, 153, 44);\r\n    font-size: 15px;\n}\n.fa-trash[data-v-51394c94] {\r\n    color: rgb(167, 43, 43);\r\n    font-size: 15px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -6963,7 +6962,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.loading[data-v-0290a21d] {\r\n    margin: 0;\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    transform: translate(-50%, -50%);\r\n\r\n    font-size: 40px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.loading[data-v-0290a21d] {\r\n    margin: 0;\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    transform: translate(-50%, -50%);\r\n\r\n    font-size: 40px;\n}\n.loading p[data-v-0290a21d] {\r\n    font-size: 20px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -39112,7 +39111,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group col-6" }, [
                   _c("label", { attrs: { for: "" } }, [
-                    _vm._v("Kulutuse tüüp")
+                    _vm._v("Sisestuse tüüp")
                   ]),
                   _vm._v(" "),
                   _c("select", { staticClass: "form-control" }, [
@@ -39230,11 +39229,7 @@ var render = function() {
           [_vm._v("Dengi")]
         ),
         _vm._v(" "),
-        _c(
-          "router-link",
-          { staticClass: "btn nav-button", attrs: { to: { name: "insert" } } },
-          [_vm._v("Logi sisse")]
-        )
+        _c("div", { staticClass: "btn nav-button" }, [_vm._v("Logi sisse")])
       ],
       1
     ),
@@ -39318,10 +39313,10 @@ var staticRenderFns = [
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "form-group col-6" }, [
-        _c("label", { attrs: { for: "" } }, [_vm._v("Kulutuse tüüp")]),
+        _c("label", { attrs: { for: "" } }, [_vm._v("Sisestuse tüüp")]),
         _vm._v(" "),
         _c("select", { staticClass: "form-control" }, [
-          _c("option", [_vm._v("Kulutus")]),
+          _c("option", [_vm._v("Väljaminek")]),
           _vm._v(" "),
           _c("option", [_vm._v("Sissetulek")])
         ])
@@ -39579,10 +39574,18 @@ var render = function() {
           _c(
             "router-link",
             { attrs: { to: { name: "edit", params: { id: _vm.id } } } },
-            [_c("i", { staticClass: "far fa-edit" })]
+            [
+              _c("i", {
+                staticClass: "far fa-edit pr-1",
+                attrs: { title: "Muuda kirjet" }
+              })
+            ]
           ),
           _vm._v(" "),
-          _c("i", { staticClass: "fas fa-trash" })
+          _c("i", {
+            staticClass: "fas fa-trash",
+            attrs: { title: "Kustuta kirje" }
+          })
         ],
         1
       )
@@ -39758,6 +39761,8 @@ var staticRenderFns = [
     return _c("div", [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "loading text-center" }, [
+          _c("p", [_vm._v("Laen lehte")]),
+          _vm._v(" "),
           _c("i", { staticClass: "fas fa-spinner fa-pulse" })
         ])
       ])

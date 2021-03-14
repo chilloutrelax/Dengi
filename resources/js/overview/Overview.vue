@@ -18,7 +18,7 @@
                                 <router-link
                                     class="btn btn-warning btn-block"
                                     :to="{
-                                        name: `insert`
+                                        name: 'insert'
                                     }"
                                     >Lisa uus</router-link
                                 >

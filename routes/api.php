@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Overview;
+use App\Http\Controllers\Api\OverviewController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,10 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('overviews', function(Request $request){
-    return Overview::all();
-});
 
-Route::get('overviews/{id}', function (Request $request, $id){
-    return Overview::findOrFail($id);
-});
+//Index - kõikidele vastetele, show - kindel vaste
+// Route::get('overviews', [OverviewController::class, 'index']);
+// Route::get('overviews/{id}', [OverviewController::class, 'show']);
+
+//Sama, mis eelmine aga refactored (eemalda ->only.. et saada ligi kõikidele meetoditele)
+Route::apiResource('overviews', OverviewController::class)->only(['index', 'show']);
