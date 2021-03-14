@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Overview;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +17,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+Route::get('overviews', function(Request $request){
+    return Overview::all();
+});
+
+Route::get('overviews/{id}', function (Request $request, $id){
+    return Overview::findOrFail($id);
 });

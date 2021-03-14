@@ -1,6 +1,5 @@
 <template>
     <div>
-        Rows is : {{ rows }}
         <div v-if="loading">
             <Loading></Loading>
         </div>
@@ -40,10 +39,7 @@
                 >
                     <div
                         class="row"
-                        v-for="(overview, row) in overviews.slice(
-                            (columns - 1) * rows,
-                            column * rows
-                        )"
+                        v-for="(overview, row) in overviewsInColumn(column)"
                         :key="'row' + row + column"
                     >
                         <OverviewItem
@@ -89,80 +85,16 @@ export default {
                 : Math.ceil(this.overviews.length / this.columns);
         }
     },
-    methods: {},
+    methods: {
+        overviewsInColumn(column) {
+            return this.overviews.slice(
+                (column - 1) * this.rows,
+                column * this.rows
+            );
+        }
+    },
     created() {
         this.loading = true;
-        setTimeout(() => {
-            this.overviews = [
-                {
-                    date: "2021-05-10",
-                    money: 200,
-                    type: "Sissetulek",
-                    comment: "Raha tuli koju"
-                },
-                {
-                    date: "2021-05-15",
-                    money: 200,
-                    type: "Sissetulek",
-                    comment: "Raha tuli teist korda"
-                },
-                {
-                    date: "2021-05-15",
-                    money: 200,
-                    type: "Sissetulek",
-                    comment: "Raha tuli teist korda"
-                },
-                {
-                    date: "2021-05-15",
-                    money: 200,
-                    type: "Sissetulek",
-                    comment: "Raha tuli teist korda"
-                },
-                {
-                    date: "2021-05-15",
-                    money: 200,
-                    type: "Sissetulek",
-                    comment: "Raha tuli teist korda"
-                },
-                {
-                    date: "2021-05-15",
-                    money: 200,
-                    type: "Sissetulek",
-                    comment: "Raha tuli teist korda"
-                },
-                {
-                    date: "2021-05-15",
-                    money: 200,
-                    type: "Sissetulek",
-                    comment: "Raha tuli teist korda"
-                },
-                {
-                    date: "2021-05-15",
-                    money: 200,
-                    type: "Sissetulek",
-                    comment: "Raha tuli teist korda"
-                },
-                {
-                    date: "2021-05-15",
-                    money: 200,
-                    type: "Sissetulek",
-                    comment: "Raha tuli teist korda"
-                },
-                {
-                    date: "2021-05-15",
-                    money: 200,
-                    type: "Sissetulek",
-                    comment: "Raha tuli teist korda"
-                }
-            ];
-            this.users = [
-                {
-                    username: "Riko M",
-                    created_at: "2021-04-16"
-                }
-            ];
-            this.loading = false;
-        }, 2000);
     }
 };
 </script>

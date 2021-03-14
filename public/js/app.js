@@ -2023,10 +2023,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 
 
@@ -2051,69 +2047,13 @@ __webpack_require__.r(__webpack_exports__);
       return this.overviews == null ? 0 : Math.ceil(this.overviews.length / this.columns);
     }
   },
-  methods: {},
+  methods: {
+    overviewsInColumn: function overviewsInColumn(column) {
+      return this.overviews.slice((column - 1) * this.rows, column * this.rows);
+    }
+  },
   created: function created() {
-    var _this = this;
-
     this.loading = true;
-    setTimeout(function () {
-      _this.overviews = [{
-        date: "2021-05-10",
-        money: 200,
-        type: "Sissetulek",
-        comment: "Raha tuli koju"
-      }, {
-        date: "2021-05-15",
-        money: 200,
-        type: "Sissetulek",
-        comment: "Raha tuli teist korda"
-      }, {
-        date: "2021-05-15",
-        money: 200,
-        type: "Sissetulek",
-        comment: "Raha tuli teist korda"
-      }, {
-        date: "2021-05-15",
-        money: 200,
-        type: "Sissetulek",
-        comment: "Raha tuli teist korda"
-      }, {
-        date: "2021-05-15",
-        money: 200,
-        type: "Sissetulek",
-        comment: "Raha tuli teist korda"
-      }, {
-        date: "2021-05-15",
-        money: 200,
-        type: "Sissetulek",
-        comment: "Raha tuli teist korda"
-      }, {
-        date: "2021-05-15",
-        money: 200,
-        type: "Sissetulek",
-        comment: "Raha tuli teist korda"
-      }, {
-        date: "2021-05-15",
-        money: 200,
-        type: "Sissetulek",
-        comment: "Raha tuli teist korda"
-      }, {
-        date: "2021-05-15",
-        money: 200,
-        type: "Sissetulek",
-        comment: "Raha tuli teist korda"
-      }, {
-        date: "2021-05-15",
-        money: 200,
-        type: "Sissetulek",
-        comment: "Raha tuli teist korda"
-      }];
-      _this.users = [{
-        username: "Riko M",
-        created_at: "2021-04-16"
-      }];
-      _this.loading = false;
-    }, 2000);
   }
 });
 
@@ -39099,7 +39039,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm._v("\n    Rows is : " + _vm._s(_vm.rows) + "\n    "),
     _vm.loading
       ? _c("div", [_c("Loading")], 1)
       : _c("div", [
@@ -39172,29 +39111,26 @@ var render = function() {
                     key: "column" + column,
                     staticClass: "overview-list-fetch col-12"
                   },
-                  _vm._l(
-                    _vm.overviews.slice(
-                      (_vm.columns - 1) * _vm.rows,
-                      column * _vm.rows
-                    ),
-                    function(overview, row) {
-                      return _c(
-                        "div",
-                        { key: "row" + row + column, staticClass: "row" },
-                        [
-                          _c("OverviewItem", {
-                            attrs: {
-                              date: overview.date,
-                              money: overview.money,
-                              type: overview.type,
-                              comment: overview.comment
-                            }
-                          })
-                        ],
-                        1
-                      )
-                    }
-                  ),
+                  _vm._l(_vm.overviewsInColumn(column), function(
+                    overview,
+                    row
+                  ) {
+                    return _c(
+                      "div",
+                      { key: "row" + row + column, staticClass: "row" },
+                      [
+                        _c("OverviewItem", {
+                          attrs: {
+                            date: overview.date,
+                            money: overview.money,
+                            type: overview.type,
+                            comment: overview.comment
+                          }
+                        })
+                      ],
+                      1
+                    )
+                  }),
                   0
                 )
               })
