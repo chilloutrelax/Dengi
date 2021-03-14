@@ -7,11 +7,7 @@
             <div class="m-2">
                 <div class="row col-12">
                     <div class="row user-data-list"></div>
-                    <OverviewUser
-                        :username="user.username"
-                        v-for="(user, index) in users"
-                        :key="index"
-                    ></OverviewUser>
+                    <OverviewUser username="Riko M"></OverviewUser>
 
                     <div
                         class="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-12 mb-5"
@@ -21,7 +17,9 @@
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                 <router-link
                                     class="btn btn-warning btn-block"
-                                    :to="{ name: 'insert' }"
+                                    :to="{
+                                        name: `insert`
+                                    }"
                                     >Lisa uus</router-link
                                 >
                             </div>
@@ -38,16 +36,11 @@
                     :key="'column' + column"
                 >
                     <div
-                        class="row"
+                        class="d-flex align-items-stretch row"
                         v-for="(overview, row) in overviewsInColumn(column)"
                         :key="'row' + row + column"
                     >
-                        <OverviewItem
-                            :date="overview.date"
-                            :money="overview.money"
-                            :type="overview.type"
-                            :comment="overview.comment"
-                        ></OverviewItem>
+                        <OverviewItem v-bind="overview"></OverviewItem>
                     </div>
                 </div>
             </div>
@@ -95,6 +88,13 @@ export default {
     },
     created() {
         this.loading = true;
+
+        const request = axios.get("/api/overviews").then(response => {
+            this.overviews = response.data;
+            this.loading = false;
+        });
+
+        console.log(request);
     }
 };
 </script>
