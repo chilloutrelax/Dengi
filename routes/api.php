@@ -1,8 +1,10 @@
 <?php
 
+use App\Models\Overview;
 use App\Http\Controllers\Api\OverviewController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +22,27 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 //Index - kõikidele vastetele, show - kindel vaste
-// Route::get('overviews', [OverviewController::class, 'index']);
+// Route::get('overviews/income', [OverviewController::class, 'index']);
 // Route::get('overviews/{id}', [OverviewController::class, 'show']);
 
 //Sama, mis eelmine aga refactored (eemalda ->only.. et saada ligi kõikidele meetoditele)
 Route::apiResource('overviews', OverviewController::class)->only(['index', 'show']);
+
+
+//Sisestamine Overview tabelisse, tuleb refactorida controllerisse ja resource teha.
+Route::post('overviews', function (Request $request){
+    return Overview::create([
+        'created_at' => $request->created_at,
+        'money' => $request->money,
+        'comment' => $request->comment,
+        'type' => $request->type
+    ]);
+});
+
+//Kustutamine Overview tabelist, tuleb refactorida controllerisse ja resource teha.
+Route::delete('overviews/{id}', function($id){
+    DB::table('overviews')->where('id', $id)->delete();
+  
+    return 204;
+});
+

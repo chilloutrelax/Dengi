@@ -78,11 +78,14 @@ export default {
             overviewEdit: null
         };
     },
+    methods: {
+        submit() {}
+    },
     created() {
         this.loading = true;
 
         axios.get(`/api/overviews/${this.$route.params.id}`).then(response => {
-            this.overviewEdit = response.data;
+            this.overviewEdit = response.data.data;
             this.loading = false;
         });
     }

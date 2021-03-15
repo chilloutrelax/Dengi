@@ -76,7 +76,8 @@ export default {
             return this.overviews == null
                 ? 0
                 : Math.ceil(this.overviews.length / this.columns);
-        }
+        },
+        totalIncome() {}
     },
     methods: {
         overviewsInColumn(column) {
@@ -89,12 +90,13 @@ export default {
     created() {
         this.loading = true;
 
-        const request = axios.get("/api/overviews").then(response => {
-            this.overviews = response.data;
-            this.loading = false;
-        });
-
-        console.log(request);
+        axios
+            .get("/api/overviews")
+            .then(response => {
+                this.overviews = response.data.data;
+                this.loading = false;
+            })
+            .catch(error => console.log(error.response.data));
     }
 };
 </script>

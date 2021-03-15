@@ -19,7 +19,11 @@
                 <router-link :to="{ name: 'edit', params: { id } }"
                     ><i class="far fa-edit pr-1" title="Muuda kirjet"></i
                 ></router-link>
-                <i class="fas fa-trash" title="Kustuta kirje"></i>
+                <i
+                    class="fas fa-trash"
+                    @click="deleteData($id)"
+                    title="Kustuta kirje"
+                ></i>
             </div>
         </div>
     </div>
@@ -34,7 +38,20 @@ export default {
         type: String,
         comment: String
     },
-    created() {}
+    methods: {
+        deleteData(id) {
+            axios.delete("/api/overviews/" + this.id).then(response => {
+                this.splice(id, 1);
+                console.log(this.overview);
+            });
+
+            alert(
+                `Kustutasite kirje nr. ${this.id} kommentaariga ${this.comment}`
+            );
+
+            this.$router.go();
+        }
+    }
 };
 </script>
 
