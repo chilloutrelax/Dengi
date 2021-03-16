@@ -7,7 +7,7 @@
             <div class="m-2">
                 <div class="row col-12">
                     <div class="row user-data-list"></div>
-                    <OverviewUser username="Riko M"></OverviewUser>
+                    <OverviewUser v-bind="user"></OverviewUser>
 
                     <div
                         class="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-12 mb-5"
@@ -30,6 +30,7 @@
                 <div class="overview-list col-12">
                     <OverviewHeaders></OverviewHeaders>
                 </div>
+
                 <div
                     class="overview-list-fetch col-12"
                     v-for="column in columns"
@@ -65,7 +66,10 @@ export default {
     data() {
         return {
             overviews: null,
-            users: null,
+            user: {
+                name: "Riko",
+                age: "30"
+            },
             columns: 1,
 
             loading: false
@@ -76,8 +80,7 @@ export default {
             return this.overviews == null
                 ? 0
                 : Math.ceil(this.overviews.length / this.columns);
-        },
-        totalIncome() {}
+        }
     },
     methods: {
         overviewsInColumn(column) {
@@ -87,6 +90,7 @@ export default {
             );
         }
     },
+
     created() {
         this.loading = true;
 
@@ -101,4 +105,13 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+button.page-link {
+    display: inline-block;
+}
+button.page-link {
+    font-size: 20px;
+    color: #29b3ed;
+    font-weight: 500;
+}
+</style>

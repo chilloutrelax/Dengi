@@ -27,6 +27,7 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.15.2",
         "sweetalert2": "^10.15.5",
+        "vue-pagination-2": "^3.0.8",
         "vue-router": "^3.5.1",
         "vue-swal": "^1.0.0",
         "vuetable-2": "^2.0.0-beta.4",

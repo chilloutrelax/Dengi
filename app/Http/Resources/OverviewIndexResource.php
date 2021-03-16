@@ -19,7 +19,7 @@ class OverviewIndexResource extends JsonResource
             'created_at' => $this->created_at->format('d/m/Y'),
             'money' => $this->money,
             'comment' => $this->comment,
-            'type' => $this->type
+            'type' => $this->type,
         ];
     }
 }

@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Api\OverviewBiggestMoneyController;
 use App\Models\Overview;
 use App\Http\Controllers\Api\OverviewController;
+use App\Http\Controllers\Api\OverviewTotalController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
@@ -45,4 +47,9 @@ Route::delete('overviews/{id}', function($id){
   
     return 204;
 });
+
+//Sissetulekute route (Vaheta hiljem number 1 {user_id} vastu).
+Route::get('overviews/1/totals/', OverviewTotalController::class)->name('overview.totals.show');
+//Sissetulekute suurim ja väikseim summa (pane hiljem user_id)
+Route::get('overviews/1/biggest/', OverviewBiggestMoneyController::class)->name('overview.biggest.show');
 

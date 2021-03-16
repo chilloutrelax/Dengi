@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Overview extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'money',
+        'comment',
+        'type'
+    ];
 }
