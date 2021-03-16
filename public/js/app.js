@@ -2043,6 +2043,9 @@ __webpack_require__.r(__webpack_exports__);
       loading: false
     };
   },
+  methods: {
+    insertData: function insertData() {}
+  },
   created: function created() {
     var _this = this;
 
@@ -2207,7 +2210,47 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      isHidden: true
+    };
+  },
   props: {
     id: Number,
     created_at: String,
@@ -2224,7 +2267,6 @@ __webpack_require__.r(__webpack_exports__);
 
         console.log(_this.overview);
       });
-      alert("Kustutasite kirje nr. ".concat(this.id, " kommentaariga ").concat(this.comment));
       this.$router.go();
     }
   }
@@ -6963,7 +7005,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.list-fetch[data-v-51394c94] {\r\n    padding-top: 10px;\n}\n.list-fetch ul[data-v-51394c94] {\r\n    list-style: none;\n}\n.list-fetch li[data-v-51394c94] {\r\n    display: inline;\n}\n.item-top-border[data-v-51394c94] {\r\n    border-bottom: 1px dashed #031c1f;\n}\na[data-v-51394c94] {\r\n    text-decoration: none;\n}\n.fa-edit[data-v-51394c94] {\r\n    color: rgb(44, 153, 44);\r\n    font-size: 15px;\n}\n.fa-trash[data-v-51394c94] {\r\n    color: rgb(167, 43, 43);\r\n    font-size: 15px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.list-fetch[data-v-51394c94] {\r\n    padding-top: 10px;\n}\n.list-fetch ul[data-v-51394c94] {\r\n    list-style: none;\n}\n.list-fetch li[data-v-51394c94] {\r\n    display: inline;\n}\n.item-top-border[data-v-51394c94] {\r\n    border-bottom: 1px dashed #031c1f;\n}\na[data-v-51394c94] {\r\n    text-decoration: none;\n}\n.fa-edit[data-v-51394c94] {\r\n    color: rgb(44, 153, 44);\r\n    font-size: 15px;\n}\n.fa-trash[data-v-51394c94] {\r\n    color: rgb(167, 43, 43);\r\n    font-size: 15px;\n}\n.confirm-modal[data-v-51394c94] {\r\n    position: fixed; /* or absolute */\r\n    top: 50%;\r\n    left: 50%;\r\n    transform: translate(-50%, -50%);\r\n    text-align: start;\r\n    z-index: 200;\r\n    width: 420px;\r\n    height: 300px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -39612,10 +39654,103 @@ var render = function() {
             attrs: { title: "Kustuta kirje" },
             on: {
               click: function($event) {
-                return _vm.deleteData(_vm.$id)
+                _vm.isHidden = !_vm.isHidden
               }
             }
-          })
+          }),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: !_vm.isHidden,
+                  expression: "!isHidden"
+                }
+              ],
+              staticClass: "card confirm-modal"
+            },
+            [
+              _c("div", { staticClass: "card-body" }, [
+                _c(
+                  "h6",
+                  {
+                    staticClass:
+                      "text-muted text-uppercase font-weight-bold text-center"
+                  },
+                  [
+                    _vm._v(
+                      "\n                        Soovite kustutada kirje:\n                    "
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c("p", [
+                  _c("b", [_vm._v("Kuupäev")]),
+                  _vm._v(": " + _vm._s(_vm.created_at))
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("b", [_vm._v("Summa")]),
+                  _vm._v(": " + _vm._s(_vm.money))
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("b", [_vm._v("Tüüp")]),
+                  _vm._v(": " + _vm._s(_vm.type))
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("b", [_vm._v("Kommentaar")]),
+                  _vm._v(": " + _vm._s(_vm.comment))
+                ]),
+                _vm._v(" "),
+                _c("hr"),
+                _vm._v(" "),
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-secondary btn-block",
+                        on: {
+                          click: function($event) {
+                            _vm.isHidden = !_vm.isHidden
+                          }
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                                Tühista\n                            "
+                        )
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-danger btn-block",
+                        on: {
+                          click: function($event) {
+                            return _vm.deleteData(_vm.id)
+                          }
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                                Kustuta\n                            "
+                        )
+                      ]
+                    )
+                  ])
+                ])
+              ])
+            ]
+          )
         ],
         1
       )

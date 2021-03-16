@@ -21,9 +21,44 @@
                 ></router-link>
                 <i
                     class="fas fa-trash"
-                    @click="deleteData($id)"
+                    @click="isHidden = !isHidden"
                     title="Kustuta kirje"
                 ></i>
+
+                <div v-show="!isHidden" class="card confirm-modal">
+                    <div class="card-body">
+                        <h6
+                            class="text-muted text-uppercase font-weight-bold text-center"
+                        >
+                            Soovite kustutada kirje:
+                        </h6>
+                        <p><b>Kuupäev</b>: {{ created_at }}</p>
+                        <p><b>Summa</b>: {{ money }}</p>
+                        <p><b>Tüüp</b>: {{ type }}</p>
+                        <p><b>Kommentaar</b>: {{ comment }}</p>
+
+                        <hr />
+
+                        <div class="row">
+                            <div class="col">
+                                <button
+                                    class="btn btn-secondary btn-block"
+                                    @click="isHidden = !isHidden"
+                                >
+                                    Tühista
+                                </button>
+                            </div>
+                            <div class="col">
+                                <button
+                                    class="btn btn-danger btn-block"
+                                    @click="deleteData(id)"
+                                >
+                                    Kustuta
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -31,6 +66,11 @@
 
 <script>
 export default {
+    data() {
+        return {
+            isHidden: true
+        };
+    },
     props: {
         id: Number,
         created_at: String,
@@ -44,11 +84,6 @@ export default {
                 this.splice(id, 1);
                 console.log(this.overview);
             });
-
-            alert(
-                `Kustutasite kirje nr. ${this.id} kommentaariga ${this.comment}`
-            );
-
             this.$router.go();
         }
     }
@@ -83,5 +118,16 @@ a {
 .fa-trash {
     color: rgb(167, 43, 43);
     font-size: 15px;
+}
+
+.confirm-modal {
+    position: fixed; /* or absolute */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: start;
+    z-index: 200;
+    width: 420px;
+    height: 300px;
 }
 </style>

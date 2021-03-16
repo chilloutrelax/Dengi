@@ -61,6 +61,9 @@ export default {
             loading: false
         };
     },
+    methods: {
+        insertData() {}
+    },
     created() {
         this.loading = true;
 
