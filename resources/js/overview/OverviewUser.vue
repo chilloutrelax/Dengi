@@ -19,7 +19,7 @@
                                 <span><i class="fas fa-user-tie"></i></span>
                             </div>
                             <div class="col">
-                                <span><b>Kasutaja:</b> {{ name }}</span>
+                                <span><b>Nimi:</b> {{ name }}</span>
                             </div>
                             <div class="col">
                                 <span
@@ -63,9 +63,6 @@
                                     >
                                     {{ kpt }}</span
                                 >
-                            </div>
-                            <div class="col">
-                                <span><b>Tulud - kulud:</b> {{ tmk }}</span>
                             </div>
 
                             <br />

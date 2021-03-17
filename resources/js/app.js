@@ -5,13 +5,15 @@ import Vuex from "vuex";
 import router from "./routes";
 import Index from "./index";
 import Vue from "vue";
-import Pagination from "vue-pagination-2";
+import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
 
 window.Vue = require("vue").default;
 Vue.use(VueRouter);
 Vue.use(Vuex);
+Vue.use(BootstrapVue);
+Vue.use(IconsPlugin);
 
-Vue.component("pagination", Pagination);
+Vue.component("pagination", require("laravel-vue-pagination"));
 
 const app = new Vue({
     el: "#app",

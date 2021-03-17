@@ -1,5 +1,8 @@
 <template>
-    <div class="row col-12 item-top-border">
+    <div
+        class="row col-12 item-top-border"
+        :class="[this.type === 'Sissetulek' ? 'green' : 'red']"
+    >
         <div class="row col-10">
             <div class="col-2">
                 {{ created_at }}
@@ -111,12 +114,12 @@ a {
 }
 
 .fa-edit {
-    color: rgb(44, 153, 44);
+    color: rgb(20, 136, 20);
     font-size: 15px;
 }
 
 .fa-trash {
-    color: rgb(167, 43, 43);
+    color: rgb(179, 29, 29);
     font-size: 15px;
 }
 
@@ -129,5 +132,12 @@ a {
     z-index: 200;
     width: 420px;
     height: 300px;
+}
+.red {
+    background-color: rgba(241, 216, 216, 0.151);
+}
+
+.green {
+    background-color: rgba(191, 247, 191, 0.116);
 }
 </style>

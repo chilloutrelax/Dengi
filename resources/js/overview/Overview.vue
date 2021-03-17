@@ -26,11 +26,13 @@
                         </div>
                     </div>
                 </div>
+                <div class="">
+                    <v-tab> </v-tab>
+                </div>
 
                 <div class="overview-list col-12">
                     <OverviewHeaders></OverviewHeaders>
                 </div>
-
                 <div
                     class="overview-list-fetch col-12"
                     v-for="column in columns"
@@ -71,6 +73,7 @@ export default {
                 age: "30"
             },
             columns: 1,
+            page: 1,
 
             loading: false
         };
@@ -101,7 +104,8 @@ export default {
                 this.loading = false;
             })
             .catch(error => console.log(error.response.data));
-    }
+    },
+    mounted() {}
 };
 </script>
 
