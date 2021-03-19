@@ -26,24 +26,34 @@
                         </div>
                     </div>
                 </div>
-                <div class="">
-                    <v-tab> </v-tab>
-                </div>
 
-                <div class="overview-list col-12">
-                    <OverviewHeaders></OverviewHeaders>
-                </div>
-                <div
-                    class="overview-list-fetch col-12"
-                    v-for="column in columns"
-                    :key="'column' + column"
-                >
-                    <div
-                        class="d-flex align-items-stretch row"
-                        v-for="(overview, row) in overviewsInColumn(column)"
-                        :key="'row' + row + column"
-                    >
-                        <OverviewItem v-bind="overview"></OverviewItem>
+                <div>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                class="nav-link active"
+                                id="thisMonth-tab"
+                                data-toggle="tab"
+                                href="#thisMonth"
+                                role="tab"
+                                aria-controls="thisMonth"
+                                aria-selected="true"
+                            >
+                                <h6>Käesolev kuu</h6></a
+                            >
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="overviews">
+                        <div
+                            class="tab-pane fade show active"
+                            id="thisMonth"
+                            role="tabpanel"
+                            aria-labelledby="thisMonth-tab"
+                        >
+                            <OverviewListCurrent
+                                :bind="overviews"
+                            ></OverviewListCurrent>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -52,47 +62,32 @@
 </template>
 
 <script>
-import OverviewItem from "./OverviewItem";
-import OverviewHeaders from "./OverviewHeaders";
 import OverviewUser from "./OverviewUser";
 import Loading from "../shared/loading/Loading";
+import OverviewListCurrent from "./overviewLists/OverviewListCurrent";
 
 export default {
     components: {
-        OverviewHeaders,
-        OverviewItem,
         OverviewUser,
+        OverviewListCurrent,
         Loading
     },
 
     data() {
         return {
             overviews: null,
-            user: {
-                name: "Riko",
-                age: "30"
-            },
-            columns: 1,
-            page: 1,
+            user: [
+                {
+                    name: "Riko",
+                    age: "30"
+                }
+            ],
 
             loading: false
         };
     },
-    computed: {
-        rows() {
-            return this.overviews == null
-                ? 0
-                : Math.ceil(this.overviews.length / this.columns);
-        }
-    },
-    methods: {
-        overviewsInColumn(column) {
-            return this.overviews.slice(
-                (column - 1) * this.rows,
-                column * this.rows
-            );
-        }
-    },
+    computed: {},
+    methods: {},
 
     created() {
         this.loading = true;
@@ -104,8 +99,10 @@ export default {
                 this.loading = false;
             })
             .catch(error => console.log(error.response.data));
+
+        return this.overviews;
     },
-    mounted() {}
+    updated() {}
 };
 </script>
 

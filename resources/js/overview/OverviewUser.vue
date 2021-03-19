@@ -26,7 +26,7 @@
                                     ><i class="fas fa-plus-square"></i>&nbsp;<b
                                         >Sissetulekud:</b
                                     >
-                                    {{ totalMoney.incomes }}
+                                    {{ totalMoney.incomes }} €
                                 </span>
                             </div>
                             <div class="col">
@@ -34,7 +34,7 @@
                                     ><i class="fas fa-minus-square"></i>&nbsp;<b
                                         >Väljaminekud:</b
                                     >
-                                    {{ totalMoney.expenses }}
+                                    {{ totalMoney.expenses }} €
                                 </span>
                             </div>
                         </div>
@@ -53,7 +53,7 @@
                                     ><i class="fas fa-equals"></i>&nbsp;<b
                                         >Tulud - kulud:</b
                                     >
-                                    {{ tmk }}</span
+                                    {{ tmk }} €</span
                                 >
                             </div>
                             <div class="col">
@@ -68,14 +68,16 @@
                             <br />
                             <div class="col">
                                 <span
+                                    ><i class="fas fa-arrow-up"></i
                                     ><b>Suurim sissetulek:</b>
-                                    {{ bigMoney.bigIncome }}</span
+                                    {{ bigMoney.bigIncome }} €</span
                                 >
                             </div>
                             <div class="col">
                                 <span
+                                    ><i class="fas fa-arrow-down"></i
                                     ><b>Suurim väljaminek:</b>
-                                    {{ bigMoney.bigExpense }}</span
+                                    {{ bigMoney.bigExpense }} €</span
                                 >
                             </div>
                         </div>
@@ -143,5 +145,12 @@ export default {
 }
 .fa-percentage {
     color: rgb(168, 168, 28);
+}
+
+.fa-arrow-up {
+    color: green;
+}
+.fa-arrow-down {
+    color: red;
 }
 </style>

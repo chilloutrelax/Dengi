@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
+use Carbon\Carbon;
 use App\Models\Overview;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class OverviewBiggestMoneyController extends Controller
 {
@@ -16,8 +17,10 @@ class OverviewBiggestMoneyController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $biggIncome = Overview::where('type', 'Sissetulek')->max('money');
-        $bigExpense = Overview::where('type', 'Väljaminek')->max('money'); 
+        $biggIncome = Overview::whereYear('created_at', Carbon::now()->year)
+        ->whereMonth('created_at', Carbon::now()->month)->where('type', 'Sissetulek')->max('money');
+        $bigExpense = Overview::whereYear('created_at', Carbon::now()->year)
+        ->whereMonth('created_at', Carbon::now()->month)->where('type', 'Väljaminek')->max('money'); 
 
         return $biggIncome & $bigExpense ? response()->json([
             'bigIncome' => $biggIncome,

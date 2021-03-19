@@ -4,6 +4,9 @@
             <router-link class="navbar-brand mr-auto" :to="{ name: 'home' }"
                 >Dengi</router-link
             >
+            <router-link :to="{ name: 'queries' }"
+                ><div class="btn nav-button">Päringud</div></router-link
+            >
             <div class="btn nav-button">Logi sisse</div>
         </nav>
 

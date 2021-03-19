@@ -16,10 +16,11 @@ class OverviewIndexResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'created_at' => $this->created_at->format('d/m/Y'),
+            'created_at' => $this->created_at->format('Y-m-d'),
             'money' => $this->money,
             'comment' => $this->comment,
             'type' => $this->type,
+            'date_added' => $this->created_at->format('Y-m-d')
         ];
     }
 }

@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\Api\OverviewBiggestMoneyController;
 use App\Models\Overview;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\OverviewController;
 use App\Http\Controllers\Api\OverviewTotalController;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Api\OverviewBiggestMoneyController;
+use App\Http\Controllers\Api\OverviewCurrentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,4 +53,5 @@ Route::delete('overviews/{id}', function($id){
 Route::get('overviews/1/totals/', OverviewTotalController::class)->name('overview.totals.show');
 //Sissetulekute suurim ja väikseim summa (pane hiljem user_id)
 Route::get('overviews/1/biggest/', OverviewBiggestMoneyController::class)->name('overview.biggest.show');
-
+//Overviews hetkelise kuu kohta
+Route::get('overviews/1/current', OverviewCurrentController::class)->name('overviews.this.month');

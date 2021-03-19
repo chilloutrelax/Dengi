@@ -7,9 +7,7 @@
             <div class="col-2">
                 {{ created_at }}
             </div>
-            <div class="col-2">
-                {{ money }}
-            </div>
+            <div class="col-2">{{ money }} €</div>
             <div class="col-2">
                 {{ type }}
             </div>
@@ -18,51 +16,7 @@
             </div>
         </div>
         <div class="row ml-auto col-2">
-            <div class="col text-right">
-                <router-link :to="{ name: 'edit', params: { id } }"
-                    ><i class="far fa-edit pr-1" title="Muuda kirjet"></i
-                ></router-link>
-                <i
-                    class="fas fa-trash"
-                    @click="isHidden = !isHidden"
-                    title="Kustuta kirje"
-                ></i>
-
-                <div v-show="!isHidden" class="card confirm-modal">
-                    <div class="card-body">
-                        <h6
-                            class="text-muted text-uppercase font-weight-bold text-center"
-                        >
-                            Soovite kustutada kirje:
-                        </h6>
-                        <p><b>Kuupäev</b>: {{ created_at }}</p>
-                        <p><b>Summa</b>: {{ money }}</p>
-                        <p><b>Tüüp</b>: {{ type }}</p>
-                        <p><b>Kommentaar</b>: {{ comment }}</p>
-
-                        <hr />
-
-                        <div class="row">
-                            <div class="col">
-                                <button
-                                    class="btn btn-secondary btn-block"
-                                    @click="isHidden = !isHidden"
-                                >
-                                    Tühista
-                                </button>
-                            </div>
-                            <div class="col">
-                                <button
-                                    class="btn btn-danger btn-block"
-                                    @click="deleteData(id)"
-                                >
-                                    Kustuta
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="col text-right"></div>
         </div>
     </div>
 </template>

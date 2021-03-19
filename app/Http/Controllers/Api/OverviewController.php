@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\Overview;
-use App\Http\Resources\OverviewIndexResource;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\OverviewIndexResource;
 
 class OverviewController extends Controller
 {

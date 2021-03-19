@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\Models\Overview;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Arr;
+use Carbon\Carbon;
 
 class OverviewFactory extends Factory
 {
@@ -22,15 +23,21 @@ class OverviewFactory extends Factory
      */
     public function definition()
     {
+
+
         $suffix = [
             'Sissetulek',
             'Väljaminek'
 
         ];
+
+        $dates = Carbon::instance($this->faker->dateTimeBetween('-1 year', 'today'));
         return [
+            'created_at' => $dates->format('Y-m-d'),
             'money' => random_int(1, 400),
             'comment' => $this->faker->text(50),
-            'type' => Arr::random($suffix)
+            'type' => Arr::random($suffix),
+            'date_added' => $dates->format('Y-m-d'),
         ];
     }
 }

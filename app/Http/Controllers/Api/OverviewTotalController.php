@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
+use Carbon\Carbon;
 use App\Models\Overview;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class OverviewTotalController extends Controller
 {
@@ -17,8 +18,10 @@ class OverviewTotalController extends Controller
     public function __invoke(Request $request)
     {
         // $data = request([
-        $income = Overview::where('type', 'Sissetulek')->sum('money');
-        $expense = Overview::where('type', 'Väljaminek')->sum('money'); 
+        $income = Overview::whereYear('created_at', Carbon::now()->year)
+        ->whereMonth('created_at', Carbon::now()->month)->where('type', 'Sissetulek')->sum('money');
+        $expense = Overview::whereYear('created_at', Carbon::now()->year)
+        ->whereMonth('created_at', Carbon::now()->month)->where('type', 'Väljaminek')->sum('money');
         
         
         //return $data ? response()->json([]) : response()->json([], 404);
