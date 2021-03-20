@@ -1,13 +1,13 @@
 <template>
     <div>
-        <div class="overflow-auto" v-if="!loading">
+        <div class="overflow-auto" v-if="!loading && this.overviews !== null">
             <b-table
                 hover
                 id="overviews"
                 :items="overviews"
                 :per-page="perPage"
                 :current-page="currentPage"
-                :fields="fields"
+                :fields="columns"
                 small
                 :sort-by.sync="sortBy"
                 :sort-desc.sync="sortDesc"
@@ -16,7 +16,7 @@
                     {{ data.index + 1 }}
                 </template>
                 <template #cell(actions)="">
-                    <div class="">
+                    <div>
                         <span class="mr-3"
                             >Muuda &nbsp;<i
                                 class="far fa-edit pr-1"
@@ -24,12 +24,7 @@
                             ></i
                         ></span>
 
-                        <span
-                            >Kustuta &nbsp;<i
-                                class="fas fa-trash"
-                                title="Kustuta kirje"
-                            ></i
-                        ></span>
+                        <span></span>
                     </div>
                 </template>
             </b-table>
@@ -53,7 +48,6 @@
 
 <script>
 import LoadingOverviews from "./../../shared/loading/LoadingOverviews";
-import moment from "moment";
 
 export default {
     components: {
@@ -61,9 +55,11 @@ export default {
     },
     data() {
         return {
+            overviews: [],
             sortBy: "created_at",
             sortDesc: true,
             fields: [
+                { key: "id", thClass: "d-none", tdClass: "d-none" },
                 {
                     index: "Number"
                 },
@@ -115,6 +111,9 @@ export default {
                 // Let b-table handle sorting other fields (other than `date` field)
                 return false;
             }
+        },
+        onslickkkk() {
+            console.log(this.overviews.id);
         }
     },
     created() {

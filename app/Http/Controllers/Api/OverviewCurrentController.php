@@ -20,10 +20,8 @@ class OverviewCurrentController extends Controller
     public function __invoke(Request $request)
     {
         $thisMonth = Overview::whereYear('date_added', Carbon::today()->year)
-                    ->whereMonth('date_added', Carbon::today()->month)
+                    ->whereMonth('date_added', Carbon::today()->month)->whereNull('delete_date')
                     ->get();
-
-        $thisMonth2 = Overview::where('date_added', '>=', date('Y-m-d'));
         
         return $thisMonth ? response()->json([
             'data' => $thisMonth,

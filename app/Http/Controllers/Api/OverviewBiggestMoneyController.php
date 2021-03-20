@@ -18,9 +18,9 @@ class OverviewBiggestMoneyController extends Controller
     public function __invoke(Request $request)
     {
         $biggIncome = Overview::whereYear('created_at', Carbon::now()->year)
-        ->whereMonth('created_at', Carbon::now()->month)->where('type', 'Sissetulek')->max('money');
+        ->whereMonth('created_at', Carbon::now()->month)->whereNull('delete_date')->where('type', 'Sissetulek')->max('money');
         $bigExpense = Overview::whereYear('created_at', Carbon::now()->year)
-        ->whereMonth('created_at', Carbon::now()->month)->where('type', 'Väljaminek')->max('money'); 
+        ->whereMonth('created_at', Carbon::now()->month)->whereNull('delete_date')->where('type', 'Väljaminek')->max('money'); 
 
         return $biggIncome & $bigExpense ? response()->json([
             'bigIncome' => $biggIncome,
