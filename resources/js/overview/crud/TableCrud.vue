@@ -184,26 +184,15 @@ export default {
             this.itemIndex = this.overviews.indexOf(item);
             this.editedOverview = Object.assign({}, item);
         },
-        deleteOverview(overview) {
+        deleteOverview() {
             confirm(
                 `Kas olete kindel, et soovite kustutada antud kirje: ${this.editedOverview.money}, ${this.editedOverview.type}, ${this.editedOverview.comment}?`
-            ) && this.overviews.splice(this.editedOverview, 1);
+            ) && this.overviews.splice(this.editedOverview.id, 1);
 
-            axios.delete("/api/overviews/" + this.editedOverview.id, {
-                _method: "delete"
+            axios.put("/api/overviews/" + this.editedOverview.id + "/delete", {
+                _method: "put"
             });
 
-            // axios
-            //     .delete("/api/overviews/" + this.overviews.id)
-            //     .then(response => {
-            //         this.status = response.status;
-            //     })
-            //     .catch(error => {
-            //         if (422 === error.response.status) {
-            //             this.errors = error.response.data.errors;
-            //         }
-            //         this.status = error.response.status;
-            //     });
             this.closeModal2();
 
             location.reload();

@@ -53,10 +53,13 @@ class OverviewController extends Controller
     }
 
     public function deleteOverview(Request $request) {
-        // $this->validate($request, [
-        //     'id' => 'required'
-        // ]);
 
-        return Overview::where('id', $request->id)->delete();
+        $currentDate = Carbon::now();
+
+        return Overview::where('id', $request->id)->update([
+            'delete_date' => $currentDate
+        ]);
+
+        // return Overview::where('id', $request->id)->delete();
     }
 }
