@@ -150,4 +150,8 @@ export default {
 .b-calendar-inner {
     width: 320px !important;
 }
+
+.modal-backdrop {
+    background-color: #2e3030d1 !important;
+}
 </style>

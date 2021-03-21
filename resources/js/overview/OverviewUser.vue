@@ -10,12 +10,12 @@
                     </h6>
                 </div>
 
-                <div class="col-12 card">
+                <div class="col card">
                     <div class="row card-body">
-                        <div class="col-6">
-                            <div
-                                class="col col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-3"
-                            >
+                        <div
+                            class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 mb-3 text-center"
+                        >
+                            <div class="col mb-3">
                                 <span><i class="fas fa-user-tie"></i></span>
                             </div>
                             <div class="col">
@@ -39,7 +39,9 @@
                             </div>
                         </div>
 
-                        <div class="col-6 border-left">
+                        <div
+                            class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 mb-3"
+                        >
                             <div class="col">
                                 <h6
                                     class="text-muted text-uppercase font-weight-bold"

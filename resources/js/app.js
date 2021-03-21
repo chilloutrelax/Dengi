@@ -12,9 +12,27 @@ Vue.use(VueRouter);
 Vue.use(Vuex);
 Vue.use(BootstrapVue);
 
+const store = new Vuex.Store({
+    state: {
+        count: 0
+    },
+    mutations: {
+        increment(state) {
+            state.count++;
+            console.log(state);
+            state.count++;
+        }
+    }
+});
+
+store.commit("increment");
+
+console.log(store.state.count);
+
 const app = new Vue({
     el: "#app",
     router,
+    store,
     components: {
         index: Index
     }

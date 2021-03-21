@@ -14,16 +14,6 @@ const routes = [
         path: "/queries",
         component: Queries,
         name: "queries"
-    },
-    {
-        path: "/insert",
-        component: Insert,
-        name: "insert"
-    },
-    {
-        path: "/edit/:id",
-        component: OverviewEdit,
-        name: "edit"
     }
 ];
 
