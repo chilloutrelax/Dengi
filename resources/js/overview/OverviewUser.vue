@@ -1,5 +1,5 @@
 <template>
-    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-12 mb-5">
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 col-12 mb-5">
         <div class="col-12">
             <div class="col">
                 <div class="col-12">

@@ -21,7 +21,10 @@
                         size="sm"
                         ><i class="far fa-edit pr-1" title="Muuda kirjet"></i
                     ></b-button>
-                    <b-button variant="primary" size="sm"
+                    <b-button
+                        @click="deleteOverview(data.item)"
+                        variant="danger"
+                        size="sm"
                         ><i class="fas fa-trash" title="Kustuta kirje"></i
                     ></b-button>
                 </template>
@@ -42,15 +45,26 @@
 
             <b-modal v-model="modalShow" :title="computedTitle" hide-footer>
                 <b-form @submit.prevent="save">
-                    <slot :formdata="editedOverview" name="input-fields">
+                    <slot :formdata="editedOverview" name="overview-inputs">
                     </slot>
 
-                    <b-button>
+                    <b-button @click="closeModal">
                         Tühista
                     </b-button>
 
-                    <b-button>
+                    <b-button variant="success">
                         Salvesta
+                    </b-button>
+                </b-form>
+            </b-modal>
+
+            <b-modal v-model="modalShow2" :title="computedTitle" hide-footer>
+                <b-form>
+                    <slot :formdata="editedOverview" name="overview-delete">
+                    </slot>
+
+                    <b-button variant="danger">
+                        Kustuta
                     </b-button>
                 </b-form>
             </b-modal>
@@ -72,6 +86,7 @@ export default {
         return {
             editedOverview: this.formFields,
             modalShow: false,
+            modalShow2: false,
             indexEdit: -1,
             overviews: [],
 
@@ -125,17 +140,26 @@ export default {
         }
     },
     methods: {
+        closeModal() {
+            this.modalShow = false;
+        },
         createViewInsert() {
             this.modalShow = true;
             this.editedOverview = Object.assign({}, this.formFields);
             this.indexEdit = -1;
         },
-        editViewitem(item) {
+        editViewitem(overview) {
             this.modalShow = true;
-            this.itemIndex = this.overviews.indexOf(item);
-            this.editedOverview = Object.assign({}, item);
+            this.itemIndex = this.overviews.indexOf(overview);
+            this.editedOverview = Object.assign({}, overview);
         },
-        deleteOverview(item) {}
+        deleteOverview(overview) {
+            // Andmebaasi id peab = overviedId
+            // const overviewId = this.overviews.indexOf(overview);
+            this.modalShow2 = true;
+            this.itemIndex = this.overviews.indexOf(overview);
+            this.editedOverview = Object.assign({}, overview);
+        }
     },
     created() {
         this.loading = true;
@@ -143,6 +167,7 @@ export default {
         axios(this.endpoint).then(
             response => (this.overviews = response.data.data)
         );
+
         this.loading = false;
     }
 };
