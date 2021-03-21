@@ -35,12 +35,16 @@ Route::apiResource('overviews', OverviewController::class)->only(['index', 'show
 //Sisestamine Overview tabelisse, tuleb refactorida controllerisse ja resource teha.
 Route::post('overviews', function (Request $request){
     return Overview::create([
-        'created_at' => $request->created_at,
+        'date_added' => $request->date_added,
         'money' => $request->money,
         'comment' => $request->comment,
         'type' => $request->type
     ]);
 });
+
+//Update 
+
+// Route::post('overviews')->
 
 //Kustutamine Overview tabelist, tuleb refactorida controllerisse ja resource teha.
 Route::delete('overviews/{id}', function($id){

@@ -7,8 +7,7 @@
                 date_added: '',
                 money: '',
                 type: '',
-                comment: '',
-                actions: ''
+                comment: ''
             }"
         >
             <template v-slot:overview-inputs="{ formdata }">
@@ -35,8 +34,6 @@
                         autocomplete="off"
                         type="date"
                         locale="en-US"
-                        :min="min"
-                        :max="max"
                     >
                     </b-form-input>
                 </b-form-group>
@@ -55,10 +52,10 @@
 
                 <b-form-group
                     id="overview-input-4"
-                    label="Tüüp"
+                    label="Kommentaar"
                     label-for="input-4"
                     ><b-form-input
-                        id="input-3"
+                        id="input-4"
                         v-model="formdata.comment"
                         required
                     ></b-form-input
@@ -117,31 +114,10 @@ export default {
     },
     data() {
         return {
-            number: Number,
-            dateValue: "",
-            min: this.minDate,
-            max: this.maxDate
+            number: Number
         };
     },
-    methods: {
-        minAndMaxDate() {
-            const now = new Date();
-            const today = new Date(
-                now.getFullYear(),
-                now.getMonth(),
-                now.getDate()
-            );
-
-            const maxDate = new Date(today);
-
-            const minDate = newDate(now.getMonth);
-
-            return {
-                maxDate,
-                minDate
-            };
-        }
-    }
+    methods: {}
 };
 </script>
 
