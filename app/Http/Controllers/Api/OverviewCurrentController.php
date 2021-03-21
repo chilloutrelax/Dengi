@@ -7,7 +7,7 @@ use Carbon\Carbon;
 use App\Models\Overview;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Models\User;
 
 class OverviewCurrentController extends Controller
 {
@@ -20,7 +20,7 @@ class OverviewCurrentController extends Controller
     public function __invoke(Request $request)
     {
         $thisMonth = Overview::whereYear('date_added', Carbon::today()->year)
-                    ->whereMonth('date_added', Carbon::today()->month)->whereNull('delete_date')
+                    ->whereMonth('date_added', Carbon::today()->month)->whereNull('delete_date')->orderBy('id', 'DESC')
                     ->get();
         
         return $thisMonth ? response()->json([

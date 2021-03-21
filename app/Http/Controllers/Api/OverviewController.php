@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Api;
 
+
 use App\Models\Overview;
+use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\OverviewIndexResource;
-use Illuminate\Http\Request;
 
 class OverviewController extends Controller
 {
@@ -17,14 +19,44 @@ class OverviewController extends Controller
         return new OverviewIndexResource(Overview::findOrFail($id));
     }
 
-    // public function store(Request $request){
-    //     $data = $request -> validate([
-    //         'id' => 'requied|size:36|unique:overviews',
-    //         'money' => 'required|numeric',
-    //         'comment' =>  'required|max:255',
-    //         'type' => 'required|"max:11", "in:Sissetulek, Väljaminek"',
-    //         'date_added' => 'date|date_format:Y-m-d'
-    //     ]);
+    public function addOverview(Request $request) {
+        $this->validate($request, [
+            'date_added' => 'required|date',
+            'money' => 'required',
+            'comment' => 'required',
+            'type' => 'required',
+        ]);
+        
+        return Overview::create([
+            'date_added' => $request->date_added,
+            'money' => $request->money,
+            'comment' => $request->comment,
+            'type' => $request->type
+        ]);
+    }
 
-    // }
+    public function editOverview(Request $request) {
+
+        $this->validate($request, [
+            'date_added' => 'required|date',
+            'money' => 'required',
+            'comment' => 'required',
+            'type' => 'required|string',
+        ]);
+
+        return Overview::where('id', $request->id)->update([
+            'date_added' => $request->date_added,
+            'money' => $request->money,
+            'comment' => $request->comment,
+            'type' => $request->type
+        ]);
+    }
+
+    public function deleteOverview(Request $request) {
+        // $this->validate($request, [
+        //     'id' => 'required'
+        // ]);
+
+        return Overview::where('id', $request->id)->delete();
+    }
 }

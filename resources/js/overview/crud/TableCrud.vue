@@ -69,6 +69,7 @@
                     :title="computedTitle"
                     hide-footer
                 >
+                    <!--  -->
                     <b-form @submit.prevent="deleteOverview">
                         <slot :formdata="editedOverview" name="overview-delete">
                         </slot>
@@ -109,7 +110,8 @@ export default {
             currentPage: 1,
 
             loading: false,
-            success: false,
+            status: null,
+            errors: null,
 
             fields: [
                 {
@@ -156,7 +158,7 @@ export default {
             this.modalShow = false;
             setTimeout(() => {
                 this.editedOverview = Object.assign({}, this.formFields);
-                this.indexEdit = -1;
+                this.indexEdit = 1;
             }, 300);
         },
         closeModal2() {
@@ -171,37 +173,74 @@ export default {
             this.editedOverview = Object.assign({}, this.formFields);
             this.indexEdit = -1;
         },
-        editViewitem(overview) {
+        editViewitem(item) {
+            this.indexEdit = null;
             this.modalShow = true;
-            this.itemIndex = this.overviews.indexOf(overview);
-            this.editedOverview = Object.assign({}, overview);
+            this.itemIndex = this.overviews.indexOf(item);
+            this.editedOverview = Object.assign({}, item);
         },
-        deleteViewitem(overview) {
+        deleteViewitem(item) {
             this.modalShow2 = true;
-            this.itemIndex = this.overviews.indexOf(overview);
-            this.editedOverview = Object.assign({}, overview);
+            this.itemIndex = this.overviews.indexOf(item);
+            this.editedOverview = Object.assign({}, item);
         },
         deleteOverview(overview) {
-            const overviewId = this.overviews.indexOf(overview);
-            this.overviews.splice(overviewId, 1);
+            confirm(
+                `Kas olete kindel, et soovite kustutada antud kirje: ${this.editedOverview.money}, ${this.editedOverview.type}, ${this.editedOverview.comment}?`
+            ) && this.overviews.splice(this.editedOverview, 1);
 
-            axios
-                .delete("/api/overviews/" + this.editedOverview.id)
-                .then(response => {
-                    this.success = 204 == response.status;
-                });
+            axios.delete("/api/overviews/" + this.editedOverview.id, {
+                _method: "delete"
+            });
+
+            // axios
+            //     .delete("/api/overviews/" + this.overviews.id)
+            //     .then(response => {
+            //         this.status = response.status;
+            //     })
+            //     .catch(error => {
+            //         if (422 === error.response.status) {
+            //             this.errors = error.response.data.errors;
+            //         }
+            //         this.status = error.response.status;
+            //     });
             this.closeModal2();
 
             location.reload();
         },
         saveEditOrInsert() {
-            this.overviews.push(this.editedOverview);
-            axios
-                .post("/api/overviews/", this.editedOverview)
-                .then(response => {
-                    this.success = 201 == response.status;
-                });
+            if (this.indexEdit > -1) {
+                Object.assign([this.indexEdit], this.editedOverview);
+                axios
+                    .put(
+                        "/api/overviews/" + this.editedOverview.id,
+                        this.editedOverview
+                    )
+                    .catch(error => {
+                        if (422 === error.response.status) {
+                            this.errors = error.response.data.errors;
+                        }
+                        this.status = error.response.status;
+                    });
+
+                location.reload();
+            } else {
+                this.overviews.push(this.editedOverview);
+                axios
+                    .post("/api/overviews/", this.editedOverview)
+                    .then(response => {
+                        this.status = response.status;
+                    })
+                    .catch(error => {
+                        if (422 === error.response.status) {
+                            this.errors = error.response.data.errors;
+                        }
+                        this.status = error.response.status;
+                    });
+            }
+
             this.closeModal();
+            location.reload();
         }
     },
     created() {
