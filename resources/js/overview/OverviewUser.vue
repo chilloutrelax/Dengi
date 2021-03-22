@@ -112,7 +112,7 @@ export default {
             return +(Math.round(sumKpt + "e+2") + "e-2") + "%";
         }
     },
-    mounted() {
+    created() {
         axios
             .get("/api/overviews/1/totals")
             .then(response => {

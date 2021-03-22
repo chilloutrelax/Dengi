@@ -7,7 +7,9 @@
             <router-link :to="{ name: 'queries' }"
                 ><div class="btn nav-button">Päringud</div></router-link
             >
-            <div class="btn nav-button">Logi sisse</div>
+            <router-link :to="{ name: 'login' }">
+                <div class="btn nav-button">Logi sisse</div>
+            </router-link>
         </nav>
 
         <div class="mt-4 mb-4 pr-4 pl-4">

@@ -1,8 +1,7 @@
 import VueRouter from "vue-router";
 import Overview from "./overview/Overview";
-import Insert from "./insertion/Insert";
-import OverviewEdit from "./edit/OverviewEdit";
 import Queries from "./queries/Queries.vue";
+import LoginComp from "./auth/Login.vue";
 
 const routes = [
     {
@@ -14,6 +13,11 @@ const routes = [
         path: "/queries",
         component: Queries,
         name: "queries"
+    },
+    {
+        path: "/auth/login",
+        component: LoginComp,
+        name: "login"
     }
 ];
 
