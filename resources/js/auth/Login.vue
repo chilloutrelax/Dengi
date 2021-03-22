@@ -10,6 +10,7 @@
                         placeholder="Sisetage kasutajanimi"
                         class="form-control"
                         v-model="username"
+                        required
                     />
                 </div>
                 <div class="form-group">
@@ -20,6 +21,7 @@
                         placeholder="Sisetage parool"
                         class="form-control"
                         v-model="password"
+                        required
                     />
                 </div>
 
@@ -50,6 +52,8 @@
 </template>
 
 <script>
+import { logIn } from "../shared/utils/auth";
+
 export default {
     data() {
         return {
@@ -69,11 +73,13 @@ export default {
                     username: this.username,
                     password: this.password
                 });
-                await axios.get("/users");
+
+                logIn();
+                this.$store.dispatch("loadUser");
+                this.$router.push({ name: "home" });
             } catch (error) {
                 this.errors = error.response && error.response.data.errors;
-
-                console.log(this.error);
+                console.log(error);
             }
 
             this.loading = false;

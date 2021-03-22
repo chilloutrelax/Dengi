@@ -15,6 +15,17 @@ Vue.use(BootstrapVue);
 
 const store = new Vuex.Store(vuexStore);
 
+window.axios.interceptors.response.use(
+    response => response,
+    error => {
+        if (401 === error.response.status) {
+            store.dispatch("logout");
+        }
+
+        return Promise.reject(error);
+    }
+);
+
 const app = new Vue({
     el: "#app",
     router,
@@ -24,6 +35,6 @@ const app = new Vue({
     },
 
     async beforeCreate() {
-        this.$store.dispatch("storageLoading");
+        this.$store.dispatch("loadUser");
     }
 });

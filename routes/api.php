@@ -1,15 +1,12 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\OverviewController;
 use App\Http\Controllers\Api\OverviewTotalController;
 use App\Http\Controllers\Api\OverviewBiggestMoneyController;
 use App\Http\Controllers\Api\OverviewCurrentController;
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+
 // Kõikide tulemuste näitamiseks
 Route::apiResource('overviews', OverviewController::class)->only(['index', 'show']);
 // Sisestuste lisamine

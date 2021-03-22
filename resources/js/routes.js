@@ -1,7 +1,8 @@
 import VueRouter from "vue-router";
 import Overview from "./overview/Overview";
-import Queries from "./queries/Queries.vue";
-import LoginComp from "./auth/Login.vue";
+import Queries from "./queries/Queries";
+import Login from "./auth/Login";
+import Register from "./auth/Register";
 
 const routes = [
     {
@@ -16,8 +17,13 @@ const routes = [
     },
     {
         path: "/auth/login",
-        component: LoginComp,
+        component: Login,
         name: "login"
+    },
+    {
+        path: "/auth/register",
+        component: Register,
+        name: "register"
     }
 ];
 
