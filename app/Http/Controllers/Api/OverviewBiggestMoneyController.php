@@ -15,11 +15,11 @@ class OverviewBiggestMoneyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(Request $request)
+    public function __invoke(Request $request, $id)
     {
-        $biggIncome = Overview::whereYear('created_at', Carbon::now()->year)
+        $biggIncome = Overview::where('user_id', $id)->whereYear('created_at', Carbon::now()->year)
         ->whereMonth('created_at', Carbon::now()->month)->whereNull('delete_date')->where('type', 'Sissetulek')->max('money');
-        $bigExpense = Overview::whereYear('created_at', Carbon::now()->year)
+        $bigExpense = Overview::where('user_id', $id)->whereYear('created_at', Carbon::now()->year)
         ->whereMonth('created_at', Carbon::now()->month)->whereNull('delete_date')->where('type', 'Väljaminek')->max('money'); 
 
         return $biggIncome & $bigExpense ? response()->json([

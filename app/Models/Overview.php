@@ -11,7 +11,7 @@ class Overview extends Model
     protected $table = "overviews";
 
     public function user(){
-        return $this->belongsTo("User");
+        return $this->belongsTo(User::class);
     }
 
 
@@ -19,6 +19,7 @@ class Overview extends Model
         'date_added',
         'money',
         'comment',
-        'type'
+        'type',
+        'user_id'
     ];
 }

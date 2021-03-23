@@ -14,7 +14,7 @@ class User extends Authenticatable
     protected $table = "users";
 
     public function overviews(){
-        return $this->hasMany("Overview");
+        return $this->hasMany(Overview::class);
     }
 
     /**
@@ -23,8 +23,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
+        'name',
         'username',
-        'email'
+        'email',
+        'password',
     ];
 
     /**

@@ -198,6 +198,7 @@ export default {
             location.reload();
         },
         saveEditOrInsert() {
+            let stateUser2 = this.$store.state.user.id;
             if (this.indexEdit > -1) {
                 Object.assign([this.indexEdit], this.editedOverview);
                 axios
@@ -212,11 +213,11 @@ export default {
                         this.status = error.response.status;
                     });
 
-                location.reload();
+                // location.reload();
             } else {
                 this.overviews.push(this.editedOverview);
                 axios
-                    .post("/api/overviews/", this.editedOverview)
+                    .post("/api/overviews/" + stateUser2, this.editedOverview)
                     .then(response => {
                         this.status = response.status;
                     })
@@ -229,7 +230,7 @@ export default {
             }
 
             this.closeModal();
-            location.reload();
+            // location.reload();
         }
     },
     created() {

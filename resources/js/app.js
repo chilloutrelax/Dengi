@@ -35,6 +35,7 @@ const app = new Vue({
     },
 
     async beforeCreate() {
+        this.$store.dispatch("headerFix");
         this.$store.dispatch("loadUser");
     }
 });

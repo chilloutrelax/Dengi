@@ -92,7 +92,8 @@ export default {
             columns: 1,
             perPage: 12,
             currentPage: 1,
-            loading: false
+            loading: false,
+            userPosts: this.$store.state.user.name
         };
     },
     methods: {},
@@ -111,20 +112,7 @@ export default {
                 // Let b-table handle sorting other fields (other than `date` field)
                 return false;
             }
-        },
-        onslickkkk() {
-            console.log(this.overviews.id);
         }
-    },
-    created() {
-        this.loading = true;
-        axios
-            .get("/api/overviews/1/current")
-            .then(response => {
-                this.overviews = response.data.data;
-                this.loading = false;
-            })
-            .catch(error => console.log(error.response.data));
     }
 };
 </script>

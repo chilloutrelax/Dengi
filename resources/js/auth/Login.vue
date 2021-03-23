@@ -1,6 +1,9 @@
 <template>
     <div class="w-50 m-auto">
         <div class="card card-body">
+            <h5 class="text-uppercase text-muted text-center">
+                Sisselogimine
+            </h5>
             <form>
                 <div class="form-group">
                     <label for="username">Kasutajanimi</label>
@@ -14,7 +17,7 @@
                     />
                 </div>
                 <div class="form-group">
-                    <label for="username">Parool</label>
+                    <label for="password">Parool</label>
                     <input
                         type="password"
                         name="password"
@@ -36,15 +39,17 @@
 
                 <div class="mt-4">
                     Pole veel kasutaja?
-                    <router-link :to="{ name: 'home' }"
+                    <router-link :to="{ name: 'register' }"
                         ><b>Registreeri</b></router-link
                     >
                 </div>
-                <div>
-                    Unustasid parooli?
-                    <router-link :to="{ name: 'home' }"
-                        ><b>Taasta konto</b></router-link
-                    >
+
+                <div class="mt-4 mr-auto">
+                    <b class="text-primary ">Unustasid parooli?</b>
+                    <div>
+                        Parooli saamiseks saatke e-mail (dengi@riko.ee), koos
+                        enda nime ja kasutajanimega.
+                    </div>
                 </div>
             </form>
         </div>
@@ -75,6 +80,7 @@ export default {
                 });
 
                 logIn();
+
                 this.$store.dispatch("loadUser");
                 this.$router.push({ name: "home" });
             } catch (error) {

@@ -1,7 +1,7 @@
 <template>
     <div>
         <TableCrud
-            endpoint="/api/overviews/1/current"
+            :endpoint="this.endpoint"
             :columns="['date_added', 'money', 'type', 'comment', 'actions']"
             :form-fields="{
                 date_added: '',
@@ -117,7 +117,7 @@
 
 <script>
 import TableCrud from "../crud/TableCrud";
-import { BFormDatepicker } from "bootstrap-vue";
+import { mapState } from "vuex";
 
 const now = new Date();
 const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
@@ -132,18 +132,28 @@ maxDate.setDate(31);
 
 export default {
     components: {
-        TableCrud,
-        BFormDatepicker
+        TableCrud
     },
     data() {
         return {
             number: Number,
             selectType: ["Sissetulek", "Väljaminek"],
             min: minDate,
-            max: maxDate
+            max: maxDate,
+            endpoint: null,
+            stateUserCurrent: null
         };
     },
-    methods: {}
+    computed: {
+        ...mapState({
+            isLoggedIn: "isLoggedIn"
+        })
+    },
+    created() {
+        let stateCurrent = this.$store.state.user.id;
+
+        this.endpoint = "/api/overviews/1/current/" + stateCurrent;
+    }
 };
 </script>
 <style>

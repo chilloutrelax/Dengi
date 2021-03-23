@@ -19,7 +19,7 @@ class OverviewController extends Controller
         return new OverviewIndexResource(Overview::findOrFail($id));
     }
 
-    public function addOverview(Request $request) {
+    public function addOverview(Request $request, $id) {
         $this->validate($request, [
             'date_added' => 'required|date',
             'money' => 'required',
@@ -31,7 +31,8 @@ class OverviewController extends Controller
             'date_added' => $request->date_added,
             'money' => $request->money,
             'comment' => $request->comment,
-            'type' => $request->type
+            'type' => $request->type,
+            'user_id' => $id
         ]);
     }
 

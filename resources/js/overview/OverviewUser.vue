@@ -19,7 +19,10 @@
                                 <span><i class="fas fa-user-tie"></i></span>
                             </div>
                             <div class="col">
-                                <span><b>Nimi:</b> {{ name }}</span>
+                                <span
+                                    ><b>Nimi:</b>
+                                    {{ $store.state.user.name }}</span
+                                >
                             </div>
                             <div class="col">
                                 <span
@@ -95,7 +98,8 @@ export default {
     data() {
         return {
             totalMoney: Number,
-            bigMoney: Number
+            bigMoney: Number,
+            stateUserUser: null
         };
     },
     props: {
@@ -124,8 +128,10 @@ export default {
         // }
     },
     created() {
+        let stateUserUser = this.$store.state.user.id;
+
         axios
-            .get("/api/overviews/1/totals")
+            .get("/api/overviews/1/totals/" + stateUserUser)
             .then(response => {
                 this.totalMoney = response.data;
             })

@@ -14,6 +14,11 @@ export default {
         }
     },
     actions: {
+        //See on vajalik, et näitaks ainult vajalikke menüüsid.
+        headerFix(context) {
+            context.commit("setLoggedIn", isLoggedIn());
+        },
+
         async loadUser({ commit, dispatch }) {
             if (isLoggedIn()) {
                 try {
