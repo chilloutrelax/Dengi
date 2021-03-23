@@ -5,7 +5,7 @@
                 >Dengi
             </router-link>
 
-            <ul class="navbar-nav">
+            <ul class="navbar-nav" v-if="!isLoggedIn">
                 <li class="nav-item" v-if="!isLoggedIn">
                     <router-link class="nav-link" :to="{ name: 'login' }">
                         Logi sisse
@@ -17,10 +17,17 @@
                         Registreeri
                     </router-link>
                 </li>
-                <li class="nav-item" v-else>
+            </ul>
+            <ul class="navbar-nav" v-if="isLoggedIn">
+                <li class="nav-item">
                     <router-link class="nav-link" :to="{ name: 'queries' }">
                         Päringud
                     </router-link>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" @click.prevent="logout"
+                        >Logi välja</a
+                    >
                 </li>
             </ul>
         </nav>
@@ -39,6 +46,16 @@ export default {
         ...mapState({
             isLoggedIn: "isLoggedIn"
         })
+    },
+    methods: {
+        async logout() {
+            try {
+                axios.post("logout");
+                this.$store.dispatch("logout");
+            } catch {
+                this.$store.dispatch("logout");
+            }
+        }
     }
 };
 </script>

@@ -103,14 +103,25 @@ export default {
     },
     computed: {
         tmk() {
-            return this.totalMoney.incomes - this.totalMoney.expenses;
+            const tmkk = this.totalMoney.incomes - this.totalMoney.expenses;
+            return tmkk == 0 ? 0 : tmkk;
         },
         kpt() {
             let sumKpt =
                 (this.totalMoney.expenses / this.totalMoney.incomes) * 100;
 
-            return +(Math.round(sumKpt + "e+2") + "e-2") + "%";
+            let realSumKpt = +(Math.round(sumKpt + "e+2") + "e-2") + "%";
+
+            return realSumKpt == 0 ? 0 : realSumKpt;
         }
+        // bigIncomeComp() {
+        //     let bigMoneyIncome = this.bigMoney.incomes;
+        //     return bigMoneyIncome == 0 ? 0 : bigMoneyIncome;
+        // },
+        // bigExpenseComp() {
+        //     let bigMoneyExpense = this.bigMoney.expenses;
+        //     return bigMoneyExpenses == 0 ? 0 : bigMoneyExpense;
+        // }
     },
     created() {
         axios
