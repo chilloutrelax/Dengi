@@ -167,4 +167,19 @@ export default {
 .modal-backdrop {
     background-color: #2e3030d1 !important;
 }
+
+.page-item.active .page-link {
+    color: white !important;
+    background-color: #ffa571 !important;
+    border-color: #ffa571 !important;
+}
+
+.page-link {
+    color: black !important;
+}
+
+.table-hover tbody tr:hover td,
+.table-hover tbody tr:hover th {
+    background-color: #ffa57152;
+}
 </style>

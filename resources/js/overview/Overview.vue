@@ -1,19 +1,18 @@
 <template>
-    <div>
+    <div class="">
         <div v-if="isLoggedIn">
-            <div>
-                <div v-if="loading">
-                    <Loading></Loading>
+            <div v-if="loading">
+                <Loading></Loading>
+            </div>
+            <div v-else>
+                <div class="container">
+                    <div class="">
+                        <OverviewUser></OverviewUser>
+                    </div>
                 </div>
-                <div v-else>
-                    <div class="m-2">
-                        <div class="row col-12">
-                            <OverviewUser></OverviewUser>
-                        </div>
-
-                        <div>
-                            <OverviewCurrent></OverviewCurrent>
-                        </div>
+                <div>
+                    <div>
+                        <OverviewCurrent></OverviewCurrent>
                     </div>
                 </div>
             </div>
@@ -31,14 +30,12 @@
 <script>
 import OverviewUser from "./OverviewUser";
 import Loading from "../shared/loading/Loading";
-import OverviewListCurrent from "./overviewLists/OverviewListCurrent";
 import OverviewCurrent from "./overviewLists/OverviewCurrent";
 import { mapState } from "vuex";
 
 export default {
     components: {
         OverviewUser,
-        OverviewListCurrent,
         OverviewCurrent,
         Loading
     },

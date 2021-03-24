@@ -2,9 +2,11 @@
     <div>
         <div>
             <div v-if="!loading">
-                <b-button class="mb-2" @click="createViewInsert"
-                    >Lisa uus</b-button
-                >
+                <b-button
+                    class="mb-2 col col-sm-12 col-md-3 col-lg-3 col-xl-2 btn btn-sm btn-block btn-warning ml-auto"
+                    @click="createViewInsert"
+                    ><b>Lisa <i class="far fa-calendar-plus"></i></b>
+                </b-button>
 
                 <b-table
                     striped
@@ -16,6 +18,7 @@
                     small
                     :sort-by.sync="sortBy"
                     :sort-desc.sync="sortDesc"
+                    thead-class="orange-bg bg-light text-black"
                 >
                     <template #cell(actions)="data">
                         <b-button
@@ -37,10 +40,10 @@
                 </b-table>
                 <div class="mt-3">
                     <b-pagination
-                        class="colorPagination"
+                        class="c"
                         center
                         pills
-                        size="sm"
+                        size="md"
                         v-model="currentPage"
                         :total-rows="rows"
                         :per-page="perPage"
@@ -246,3 +249,17 @@ export default {
     }
 };
 </script>
+
+<style scoped>
+.btn-danger {
+    color: #fff;
+    background-color: #e3352fcb;
+    border-color: #e3352fcb;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #46a720cb;
+    border-color: #46a720cb;
+}
+</style>

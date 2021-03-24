@@ -1,95 +1,101 @@
 <template>
     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 col-12 mb-5">
+        <!-- <div class="col-12"> -->
+        <!-- <div class="col"> -->
         <div class="col-12">
-            <div class="col">
-                <div class="col-12">
-                    <h6
-                        class="text-muted text-uppercase text-center font-weight-bold"
-                    >
-                        Kasutaja andmed
-                    </h6>
+            <h6 class="text-muted text-uppercase text-center font-weight-bold">
+                SELLE KUU ANDMED
+            </h6>
+        </div>
+
+        <div class="col card modded-card">
+            <div class="row card-body">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 mb-3">
+                    <div class="col-12">
+                        <h6
+                            class="text-muted text-uppercase font-weight-bold pb-2"
+                        >
+                            Kasutaja andmed
+                        </h6>
+                    </div>
+                    <!-- <div class="col mb-3">
+                        <span><i class="fas fa-user-tie"></i></span>
+                    </div> -->
+                    <div class="col">
+                        <span><b>Nimi:</b> {{ $store.state.user.name }}</span>
+                    </div>
+                    <div class="col">
+                        <span
+                            ><b>Kasutajanimi:</b>
+                            {{ $store.state.user.username }}</span
+                        >
+                    </div>
+
+                    <br />
+                    <div class="col">
+                        <span
+                            ><i class="fas fa-plus-square"></i>&nbsp;<b
+                                >Sissetulekud:</b
+                            >
+                            {{ totalMoney.incomes }} €
+                        </span>
+                    </div>
+                    <div class="col">
+                        <span
+                            ><i class="fas fa-minus-square"></i>&nbsp;<b
+                                >Väljaminekud:</b
+                            >
+                            {{ totalMoney.expenses }} €
+                        </span>
+                    </div>
                 </div>
 
-                <div class="col card">
-                    <div class="row card-body">
-                        <div
-                            class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 mb-3 text-center"
+                <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 mb-3">
+                    <div class="col">
+                        <h6
+                            class="text-muted text-uppercase font-weight-bold pb-2"
                         >
-                            <div class="col mb-3">
-                                <span><i class="fas fa-user-tie"></i></span>
-                            </div>
-                            <div class="col">
-                                <span
-                                    ><b>Nimi:</b>
-                                    {{ $store.state.user.name }}</span
-                                >
-                            </div>
-                            <div class="col">
-                                <span
-                                    ><i class="fas fa-plus-square"></i>&nbsp;<b
-                                        >Sissetulekud:</b
-                                    >
-                                    {{ totalMoney.incomes }} €
-                                </span>
-                            </div>
-                            <div class="col">
-                                <span
-                                    ><i class="fas fa-minus-square"></i>&nbsp;<b
-                                        >Väljaminekud:</b
-                                    >
-                                    {{ totalMoney.expenses }} €
-                                </span>
-                            </div>
-                        </div>
+                            Näitajad
+                        </h6>
+                    </div>
 
-                        <div
-                            class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 mb-3"
+                    <div class="col">
+                        <span
+                            ><i class="fas fa-equals"></i>&nbsp;<b
+                                >Tulud - kulud:</b
+                            >
+                            {{ tmk }} €</span
                         >
-                            <div class="col">
-                                <h6
-                                    class="text-muted text-uppercase font-weight-bold"
-                                >
-                                    Näitajad
-                                </h6>
-                            </div>
+                    </div>
+                    <div class="col">
+                        <span
+                            ><i class="fas fa-percentage"></i>&nbsp;<b
+                                >Kulude % tuludest</b
+                            >
+                            {{ kpt }}</span
+                        >
+                    </div>
 
-                            <div class="col">
-                                <span
-                                    ><i class="fas fa-equals"></i>&nbsp;<b
-                                        >Tulud - kulud:</b
-                                    >
-                                    {{ tmk }} €</span
-                                >
-                            </div>
-                            <div class="col">
-                                <span
-                                    ><i class="fas fa-percentage"></i>&nbsp;<b
-                                        >Kulude % tuludest</b
-                                    >
-                                    {{ kpt }}</span
-                                >
-                            </div>
-
-                            <br />
-                            <div class="col">
-                                <span
-                                    ><i class="fas fa-arrow-up"></i
-                                    ><b>Suurim sissetulek:</b>
-                                    {{ bigMoney.bigIncome }} €</span
-                                >
-                            </div>
-                            <div class="col">
-                                <span
-                                    ><i class="fas fa-arrow-down"></i
-                                    ><b>Suurim väljaminek:</b>
-                                    {{ bigMoney.bigExpense }} €</span
-                                >
-                            </div>
-                        </div>
+                    <br />
+                    <div class="col">
+                        <span
+                            ><i class="fas fa-arrow-up"></i
+                            ><b>Suurim sissetulek:</b>
+                            {{ bigMoney.bigIncome }} €</span
+                        >
+                    </div>
+                    <div class="col">
+                        <span
+                            ><i class="fas fa-arrow-down"></i
+                            ><b>Suurim väljaminek:</b>
+                            {{ bigMoney.bigExpense }} €</span
+                        >
                     </div>
                 </div>
             </div>
         </div>
+        <!-- </div> -->
+        <!-- </div> -->
     </div>
 </template>
 
@@ -171,5 +177,10 @@ export default {
 }
 .fa-arrow-down {
     color: red;
+}
+
+.modded-card {
+    /* border: 1px solid rgba(255, 68, 0, 0.267); */
+    background-color: rgba(226, 217, 207, 0.075);
 }
 </style>

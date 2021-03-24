@@ -13,6 +13,20 @@
 // Bootstrap
 @import "~bootstrap/scss/bootstrap";
 
+//User
+@import "./user/user";
+
 * {
     font-family: "Roboto", sans-serif;
 }
+
+// body {
+//     background: rgb(255, 239, 186);
+//     background: linear-gradient(
+//         180deg,
+//         rgba(255, 239, 186, 1) 1%,
+//         rgba(255, 246, 216, 1) 22%,
+//         rgba(255, 253, 245, 1) 36%,
+//         rgba(255, 255, 255, 1) 64%
+//     );
+// }

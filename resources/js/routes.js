@@ -1,6 +1,6 @@
 import VueRouter from "vue-router";
 import Overview from "./overview/Overview";
-import LastMonth from "./queries/lastMonth";
+// import LastMonth from "./queries/lastMonth";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
 
