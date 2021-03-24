@@ -87,12 +87,14 @@
 
 <script>
 import LoadingOverviews from "./../../shared/loading/LoadingOverviews";
+import errorCatcher from "./../../shared/errors/errorCatcher";
 
 export default {
     props: ["endpoint", "columns", "formFields"],
     components: {
         LoadingOverviews
     },
+    mixins: [errorCatcher],
 
     data() {
         return {
@@ -213,7 +215,7 @@ export default {
                         this.status = error.response.status;
                     });
 
-                // location.reload();
+                location.reload();
             } else {
                 this.overviews.push(this.editedOverview);
                 axios

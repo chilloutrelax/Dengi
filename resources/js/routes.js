@@ -1,6 +1,6 @@
 import VueRouter from "vue-router";
 import Overview from "./overview/Overview";
-import Queries from "./queries/Queries";
+import LastMonth from "./queries/lastMonth";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
 
@@ -10,11 +10,11 @@ const routes = [
         component: Overview,
         name: "home"
     },
-    {
-        path: "/queries",
-        component: Queries,
-        name: "queries"
-    },
+    // {
+    //     path: "/lastMonth",
+    //     component: LastMonth,
+    //     name: "lastMonth"
+    // },
     {
         path: "/auth/login",
         component: Login,

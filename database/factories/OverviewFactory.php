@@ -38,7 +38,7 @@ class OverviewFactory extends Factory
             'comment' => $this->faker->text(50),
             'type' => Arr::random($suffix),
             'date_added' => $dates->format('Y-m-d'),
-            'user_id' => random_int(1, 100)
+            'user_id' => random_int(1, 50)
         ];
     }
 }

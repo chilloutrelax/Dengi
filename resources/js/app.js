@@ -8,10 +8,16 @@ import Vue from "vue";
 import BootstrapVue from "bootstrap-vue";
 import vuexStore from "./store";
 
+import Error from "./shared/errors/Error.vue";
+
 window.Vue = require("vue").default;
 Vue.use(VueRouter);
 Vue.use(Vuex);
 Vue.use(BootstrapVue);
+
+window.Vue = require("vue").default;
+
+// Vue.component("ErrorComponent", Error);
 
 const store = new Vuex.Store(vuexStore);
 

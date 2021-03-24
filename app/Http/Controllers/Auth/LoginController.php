@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Illuminate\Http\Request;
+
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -41,14 +42,14 @@ class LoginController extends Controller
 
     protected function authenticated(Request $request, $user)
     {
-        if($request->isXmlHttpRequest()) {
+        if ($request->isXmlHttpRequest()) {
             return response(null, 204);
         }
     }
 
     protected function loggedOut(Request $request)
     {
-        if($request->isXmlHttpRequest()) {
+        if ($request->isXmlHttpRequest()) {
             return response(null, 204);
         }
     }

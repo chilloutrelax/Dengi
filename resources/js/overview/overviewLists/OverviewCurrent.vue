@@ -20,6 +20,7 @@
                         v-model="formdata.money"
                         type="number"
                         step="0.01"
+                        min="3"
                     ></b-form-input
                 ></b-form-group>
 
@@ -30,6 +31,7 @@
                         v-model="formdata.date_added"
                         type="text"
                         placeholder="YYYY-MM-DD"
+                        min="10"
                         autocomplete="off"
                     ></b-form-input>
                     <b-input-group-append>
@@ -68,6 +70,7 @@
                         id="input-4"
                         v-model="formdata.comment"
                         required
+                        min="10"
                     ></b-form-input
                 ></b-form-group>
             </template>
@@ -152,7 +155,7 @@ export default {
     created() {
         let stateCurrent = this.$store.state.user.id;
 
-        this.endpoint = "/api/overviews/1/current/" + stateCurrent;
+        this.endpoint = "/api/overviews/current/" + stateCurrent;
     }
 };
 </script>

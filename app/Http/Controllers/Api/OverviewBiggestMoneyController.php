@@ -17,13 +17,14 @@ class OverviewBiggestMoneyController extends Controller
      */
     public function __invoke(Request $request, $id)
     {
-        $biggIncome = Overview::where('user_id', $id)->whereYear('created_at', Carbon::now()->year)
+
+        $bigIncome = Overview::whereYear('created_at', Carbon::now()->year)
         ->whereMonth('created_at', Carbon::now()->month)->whereNull('delete_date')->where('type', 'Sissetulek')->max('money');
-        $bigExpense = Overview::where('user_id', $id)->whereYear('created_at', Carbon::now()->year)
+        $bigExpense = Overview::whereYear('created_at', Carbon::now()->year)
         ->whereMonth('created_at', Carbon::now()->month)->whereNull('delete_date')->where('type', 'Väljaminek')->max('money'); 
 
-        return $biggIncome & $bigExpense ? response()->json([
-            'bigIncome' => $biggIncome,
+        return $bigIncome & $bigExpense ? response()->json([
+            'bigIncome' => $bigIncome,
             'bigExpense' => $bigExpense
         ]) : response()->json([], 404);
     }

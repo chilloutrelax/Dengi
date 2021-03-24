@@ -13,6 +13,6 @@ class OverviewTableSeeder extends Seeder
      */
     public function run()
     {
-        Overview::factory()->times(1000)->create();
+        Overview::factory()->times(4000)->create();
     }
 }

@@ -13,8 +13,15 @@
                         placeholder="Sisetage kasutajanimi"
                         class="form-control"
                         v-model="username"
-                        required
+                        :class="[
+                            {
+                                'is-invalid': this.errors !== null
+                            }
+                        ]"
                     />
+                    <!-- <ErrorComponent
+                        :errors="errorFor('username')"
+                    ></ErrorComponent> -->
                 </div>
                 <div class="form-group">
                     <label for="password">Parool</label>
@@ -24,8 +31,11 @@
                         placeholder="Sisetage parool"
                         class="form-control"
                         v-model="password"
-                        required
+                        :class="[{ 'is-invalid': this.errors }]"
                     />
+                    <!-- <ErrorComponent
+                        :errors="errorFor('password')"
+                    ></ErrorComponent> -->
                 </div>
 
                 <button
@@ -57,20 +67,24 @@
 </template>
 
 <script>
+// import errorCatcher from "./../shared/errors/errorCatcher";
 import { logIn } from "../shared/utils/auth";
 
 export default {
+    // mixins: [errorCatcher],
     data() {
         return {
             username: null,
             password: null,
             loading: false,
-            errors: null
+            errors: null,
+            status: null
         };
     },
     methods: {
         async login() {
             this.loading = true;
+            this.errors = null;
 
             try {
                 await axios.get("/sanctum/csrf-cookie");
@@ -85,12 +99,12 @@ export default {
                 this.$router.push({ name: "home" });
             } catch (error) {
                 this.errors = error.response && error.response.data.errors;
-                console.log(error);
             }
 
             this.loading = false;
         }
     },
+    computed: {},
     created() {
         this.loading = true;
         setTimeout(() => {
@@ -99,3 +113,5 @@ export default {
     }
 };
 </script>
+
+<style scoped></style>

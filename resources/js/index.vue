@@ -1,6 +1,6 @@
 <template>
     <div>
-        <nav class="navbar navbar-expand border-bottom">
+        <nav class="navbar navbar-expand">
             <router-link class="navbar-brand mr-auto" :to="{ name: 'home' }"
                 >Dengi
             </router-link>
@@ -20,7 +20,7 @@
             </ul>
             <ul class="navbar-nav" v-if="isLoggedIn">
                 <li class="nav-item">
-                    <router-link class="nav-link" :to="{ name: 'queries' }">
+                    <router-link class="nav-link" :to="{ name: 'lastMonth' }">
                         Päringud
                     </router-link>
                 </li>

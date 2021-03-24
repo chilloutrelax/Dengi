@@ -18,6 +18,7 @@
                             class="form-control"
                             v-model="user.name"
                             required
+                            :class="[{ 'is-invalid': this.errors }]"
                         />
                     </div>
 
@@ -33,6 +34,7 @@
                             class="form-control"
                             v-model="user.email"
                             required
+                            :class="[{ 'is-invalid': this.errors }]"
                         />
                     </div>
 
@@ -44,6 +46,7 @@
                         class="form-control"
                         v-model="user.username"
                         required
+                        :class="[{ 'is-invalid': this.errors }]"
                     />
                 </div>
                 <div class="form-group">
@@ -55,6 +58,7 @@
                         class="form-control"
                         v-model="user.password"
                         required
+                        :class="[{ 'is-invalid': this.errors }]"
                     />
                 </div>
 
@@ -67,6 +71,7 @@
                         class="form-control"
                         v-model="user.password_confirmation"
                         required
+                        :class="[{ 'is-invalid': this.errors }]"
                     />
                 </div>
 

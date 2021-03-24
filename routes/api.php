@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\OverviewController;
 use App\Http\Controllers\Api\OverviewTotalController;
 use App\Http\Controllers\Api\OverviewBiggestMoneyController;
 use App\Http\Controllers\Api\OverviewCurrentController;
+use App\Http\Controllers\Api\OverviewLastMonthController;
 
 
 // Kõikide tulemuste näitamiseks
@@ -18,11 +19,13 @@ Route::put('overviews/{id}/delete', [OverviewController::class, 'deleteOverview'
 
 
 //Sissetulekute route (Vaheta hiljem number 1 {user_id} vastu).
-Route::get('overviews/1/totals/{id}', OverviewTotalController::class)->name('overview.totals.show');
+Route::get('overviews/totals/{id}', OverviewTotalController::class)->name('overview.totals.show');
 //Sissetulekute suurim ja väikseim summa (pane hiljem user_id)
-Route::get('overviews/1/biggest/', OverviewBiggestMoneyController::class)->name('overview.biggest.show');
+Route::get('overviews/biggest/{id}', OverviewBiggestMoneyController::class)->name('overview.biggest.show');
 //Overviews hetkelise kuu kohta
-Route::get('overviews/1/current/{id}', OverviewCurrentController::class)->name('overviews.this.month');
+Route::get('overviews/current/{id}', OverviewCurrentController::class)->name('overviews.this.month');
+//Overviews eelmise kuu kohta
+// Route::get('overviews/lastMonth/{id}', OverviewLastMonthController::class)->name('overviews.last.month');
 
 
 //Mitte kasutusel aga vajalikud

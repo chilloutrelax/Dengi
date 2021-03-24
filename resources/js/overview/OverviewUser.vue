@@ -131,14 +131,14 @@ export default {
         let stateUserUser = this.$store.state.user.id;
 
         axios
-            .get("/api/overviews/1/totals/" + stateUserUser)
+            .get("/api/overviews/totals/" + stateUserUser)
             .then(response => {
                 this.totalMoney = response.data;
             })
             .catch(error => console.log(error.response.data));
 
         axios
-            .get("/api/overviews/1/biggest")
+            .get("/api/overviews/biggest/" + stateUserUser)
             .then(response => {
                 this.bigMoney = response.data;
             })
