@@ -232,6 +232,8 @@ export default {
                         }
                         this.status = error.response.status;
                     });
+
+                location.reload();
             }
 
             this.closeModal();
