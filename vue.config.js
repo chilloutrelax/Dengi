@@ -1,5 +1,11 @@
+// module.exports = {
+//   transpileDependencies: [
+//     'vuetify'
+//   ]
+// }
 module.exports = {
-  transpileDependencies: [
-    'vuetify'
-  ]
-}
+    publicPath:
+        process.env.NODE_ENV === "production"
+            ? "/htdocs" // This is whatever your path from the root is
+            : "/"
+};
