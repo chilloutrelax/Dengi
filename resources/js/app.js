@@ -7,15 +7,11 @@ import Index from "./index";
 import Vue from "vue";
 import BootstrapVue from "bootstrap-vue";
 import vuexStore from "./store";
-import "babel-polyfill";
-import "whatwg-fetch";
 
 window.Vue = require("vue").default;
 Vue.use(VueRouter);
 Vue.use(Vuex);
 Vue.use(BootstrapVue);
-
-window.Vue = require("vue").default;
 
 const store = new Vuex.Store(vuexStore);
 

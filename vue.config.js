@@ -6,6 +6,6 @@
 module.exports = {
     publicPath:
         process.env.NODE_ENV === "production"
-            ? "/dengi/" // This is whatever your path from the root is
+            ? "/htdocs/dengi/" // This is whatever your path from the root is
             : "/"
 };
