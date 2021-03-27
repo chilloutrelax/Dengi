@@ -57,11 +57,15 @@
                         <slot :formdata="editedOverview" name="overview-inputs">
                         </slot>
 
-                        <b-button @click="closeModal">
+                        <b-button class="btn btn-block" @click="closeModal">
                             Tühista
                         </b-button>
 
-                        <b-button type="submit" variant="success">
+                        <b-button
+                            class="btn btn-block"
+                            type="submit"
+                            variant="success"
+                        >
                             Salvesta
                         </b-button>
                     </b-form>
@@ -77,7 +81,11 @@
                         <slot :formdata="editedOverview" name="overview-delete">
                         </slot>
 
-                        <b-button type="submit" variant="danger">
+                        <b-button
+                            class="btn btn-block"
+                            type="submit"
+                            variant="danger"
+                        >
                             Kustuta
                         </b-button>
                     </b-form>

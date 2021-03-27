@@ -41,7 +41,6 @@
                         ><button
                             class="btn btn-danger btn-sm btn-block"
                             @click.prevent="deleteUser"
-                            disabled
                         >
                             Kustuta kasutaja
                         </button>
@@ -56,6 +55,29 @@
                         >
                     </div>
                 </div>
+
+                <b-modal v-model="showModal" hide-footer>
+                    <form>
+                        <div class="col">
+                            <label for="newpass">Uus parool:</label>
+                            <br />
+                            <b-input
+                                type="text"
+                                name="newpass"
+                                placeholder="Sisestage parool"
+                            />
+                        </div>
+                        <br />
+
+                        <button
+                            @click.prevent="deleteUser"
+                            class="btn btn-block btn-warning"
+                            type="submit"
+                        >
+                            Muuda
+                        </button>
+                    </form>
+                </b-modal>
             </div>
         </div>
     </div>
@@ -64,7 +86,9 @@
 <script>
 export default {
     data() {
-        return {};
+        return {
+            showModal: false
+        };
     },
     methods: {
         deleteUser(e) {

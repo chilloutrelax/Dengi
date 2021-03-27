@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\Api\DeleteUserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\OverviewController;
 use App\Http\Controllers\Api\OverviewTotalController;
 use App\Http\Controllers\Api\OverviewCurrentController;
@@ -19,7 +19,7 @@ Route::put('overviews/{id}', [OverviewController::class, 'editOverview']);
 Route::put('overviews/{id}/delete', [OverviewController::class, 'deleteOverview']);
 
 //User delete
-Route::delete('users/delete/{id}', [DeleteUserController::class, 'destroy']);
+Route::delete('users/delete/{id}', [UserController::class, 'destroy']);
 
 //Sissetulekute route (Vaheta hiljem number 1 {user_id} vastu).
 Route::get('overviews/totals/{id}', OverviewTotalController::class)->name('overview.totals.show');
