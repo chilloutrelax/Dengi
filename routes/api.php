@@ -1,11 +1,12 @@
 <?php
 
+use App\Http\Controllers\Api\DeleteUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\OverviewController;
 use App\Http\Controllers\Api\OverviewTotalController;
-use App\Http\Controllers\Api\OverviewBiggestMoneyController;
 use App\Http\Controllers\Api\OverviewCurrentController;
 use App\Http\Controllers\Api\OverviewLastMonthController;
+use App\Http\Controllers\Api\OverviewBiggestMoneyController;
 
 
 // Kõikide tulemuste näitamiseks
@@ -17,6 +18,8 @@ Route::put('overviews/{id}', [OverviewController::class, 'editOverview']);
 // Sisestusele delete date
 Route::put('overviews/{id}/delete', [OverviewController::class, 'deleteOverview']);
 
+//User delete
+Route::delete('users/delete/{id}', [DeleteUserController::class, 'destroy']);
 
 //Sissetulekute route (Vaheta hiljem number 1 {user_id} vastu).
 Route::get('overviews/totals/{id}', OverviewTotalController::class)->name('overview.totals.show');

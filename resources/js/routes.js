@@ -3,6 +3,7 @@ import Overview from "./overview/Overview";
 // import LastMonth from "./queries/lastMonth";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
+import Account from "./user/Account.vue";
 
 const routes = [
     {
@@ -24,6 +25,11 @@ const routes = [
         path: "/auth/register",
         component: Register,
         name: "register"
+    },
+    {
+        path: "/account",
+        component: Account,
+        name: "account"
     }
 ];
 

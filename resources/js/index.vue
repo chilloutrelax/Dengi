@@ -24,11 +24,8 @@
             </ul>
             <ul class="navbar-nav" v-if="isLoggedIn">
                 <li>
-                    <router-link
-                        class="nav-link disabled"
-                        :to="{ name: 'home' }"
-                    >
-                        Seaded
+                    <router-link class="nav-link " :to="{ name: 'account' }">
+                        Konto
                     </router-link>
                 </li>
                 <li class="nav-item">

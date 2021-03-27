@@ -1,6 +1,6 @@
 <template>
-    <div class="w-50 m-auto">
-        <div class="card card-body">
+    <div class="d-flex justify-content-center m-auto">
+        <div class="col-12 col-sm-12 col-md-8 col-lg-6 col-xl-6 card card-body">
             <h5 class="text-uppercase text-muted text-center">
                 Sisselogimine
             </h5>

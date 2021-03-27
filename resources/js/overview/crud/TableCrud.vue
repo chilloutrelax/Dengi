@@ -190,10 +190,6 @@ export default {
             this.editedOverview = Object.assign({}, item);
         },
         deleteOverview() {
-            confirm(
-                `Kas olete kindel, et soovite kustutada antud kirje: ${this.editedOverview.money}, ${this.editedOverview.type}, ${this.editedOverview.comment}?`
-            ) && this.overviews.splice(this.editedOverview.id, 1);
-
             axios.put("/api/overviews/" + this.editedOverview.id + "/delete", {
                 _method: "put"
             });
