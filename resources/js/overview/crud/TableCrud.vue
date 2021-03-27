@@ -256,7 +256,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .btn-danger {
     color: #fff;
     background-color: #e3352fcb;

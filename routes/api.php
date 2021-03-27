@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\OverviewAllController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\OverviewController;
@@ -27,8 +28,8 @@ Route::get('overviews/totals/{id}', OverviewTotalController::class)->name('overv
 Route::get('overviews/biggest/{id}', OverviewBiggestMoneyController::class)->name('overview.biggest.show');
 //Overviews hetkelise kuu kohta
 Route::get('overviews/current/{id}', OverviewCurrentController::class)->name('overviews.this.month');
-//Overviews eelmise kuu kohta
-// Route::get('overviews/lastMonth/{id}', OverviewLastMonthController::class)->name('overviews.last.month');
+//Kõik overviewsid useri kaupa
+Route::get('overviews/all/{id}', OverviewAllController::class)->name('overviews.all.user');
 
 
 //Mitte kasutusel aga vajalikud

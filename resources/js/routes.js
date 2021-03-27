@@ -1,6 +1,6 @@
 import VueRouter from "vue-router";
 import Overview from "./overview/Overview";
-// import LastMonth from "./queries/lastMonth";
+import AllOverviews from "./queries/AllOverviews";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
 import Account from "./user/Account.vue";
@@ -11,11 +11,11 @@ const routes = [
         component: Overview,
         name: "home"
     },
-    // {
-    //     path: "/lastMonth",
-    //     component: LastMonth,
-    //     name: "lastMonth"
-    // },
+    {
+        path: "/alloverviews",
+        component: AllOverviews,
+        name: "alloverviews"
+    },
     {
         path: "/auth/login",
         component: Login,
