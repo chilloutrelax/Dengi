@@ -1,50 +1,77 @@
 <template>
-    <div class="container-fluid">
-        <nav class="navbar navbar-expand">
-            <router-link class="navbar-brand mr-auto" :to="{ name: 'home' }">
-                <img
-                    :src="'images/' + 'Logog.png'"
-                    class="card-img-top"
-                    alt=""
-                />
-            </router-link>
+    <div class="">
+        <div class="header-sticky pt-1">
+            <nav class="navbar navbar-expand">
+                <router-link
+                    class="navbar-brand mr-auto"
+                    :to="{ name: 'home' }"
+                >
+                    <img
+                        :src="'images/' + 'Logog.png'"
+                        class="card-img-top"
+                        alt=""
+                    />
+                </router-link>
 
-            <ul class="navbar-nav" v-if="!isLoggedIn">
-                <li class="nav-item" v-if="!isLoggedIn">
-                    <router-link class="nav-link" :to="{ name: 'login' }">
-                        Logi sisse
-                    </router-link>
-                </li>
+                <ul class="navbar-nav" v-if="!isLoggedIn">
+                    <li class="nav-item" v-if="!isLoggedIn">
+                        <router-link
+                            class="nav-link text-uppercase text-muted font-weight-bold"
+                            :to="{ name: 'login' }"
+                        >
+                            <button class="btn btn-success btn-sm btn-block">
+                                Logi sisse
+                            </button>
+                        </router-link>
+                    </li>
 
-                <li class="nav-item" v-if="!isLoggedIn">
-                    <router-link class="nav-link" :to="{ name: 'register' }">
-                        Registreeri
-                    </router-link>
-                </li>
-            </ul>
-            <ul class="navbar-nav" v-if="isLoggedIn">
-                <li class="nav-item">
-                    <router-link class="nav-link" :to="{ name: 'alloverviews' }"
-                        >Päringud
-                    </router-link>
-                </li>
-                <li>
-                    <router-link class="nav-link " :to="{ name: 'account' }">
-                        Konto
-                    </router-link>
-                </li>
-                <li class="nav-item">
-                    <a
-                        href="#"
-                        class="btn btn-sm btn-warning"
-                        @click.prevent="logout"
-                        >Logi välja <i class="fas fa-sign-out-alt"></i
-                    ></a>
-                </li>
-            </ul>
-        </nav>
+                    <li class="nav-item" v-if="!isLoggedIn">
+                        <router-link
+                            class="nav-link text-uppercase text-muted font-weight-bold"
+                            :to="{ name: 'register' }"
+                        >
+                            <button class="btn btn-success btn-sm btn-block">
+                                Registreeri
+                            </button>
+                        </router-link>
+                    </li>
+                </ul>
+                <ul class="navbar-nav" v-if="isLoggedIn">
+                    <li class="nav-item mr-3">
+                        <router-link
+                            class="nav-link text-uppercase text-muted font-weight-bold"
+                            :to="{ name: 'home' }"
+                            >KÄESOLEV
+                        </router-link>
+                    </li>
+                    <li class="nav-item mr-3">
+                        <router-link
+                            class="nav-link text-uppercase text-muted font-weight-bold"
+                            :to="{ name: 'alloverviews' }"
+                            >Päringud
+                        </router-link>
+                    </li>
+                    <li>
+                        <router-link
+                            class="nav-link mr-3 text-uppercase text-muted font-weight-bold"
+                            :to="{ name: 'account' }"
+                        >
+                            Konto
+                        </router-link>
+                    </li>
+                    <li class="nav-item mt-1">
+                        <a
+                            href="#"
+                            class="btn btn-sm btn-warning"
+                            @click.prevent="logout"
+                            >Logi välja <i class="fas fa-sign-out-alt"></i
+                        ></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
 
-        <div class="mt-4 mb-4 pr-4 pl-4">
+        <div class="">
             <router-view></router-view>
         </div>
     </div>
@@ -81,12 +108,24 @@ export default {
 }
 
 .btn-warning {
-    background-color: #ffa571;
-    border-color: #ffa571;
+    background-color: #da7d47;
+    border: none;
     font-size: 0.7875rem;
     line-height: 1.5;
     font-size: 0.9rem;
     line-height: 1.6;
     font-weight: 500;
+    color: rgb(255, 255, 255);
+    text-shadow: -1px 0 rgb(122, 119, 119), 0 1px rgb(129, 124, 124),
+        1px 0 rgb(168, 158, 158), 0 -1px rgb(146, 132, 132);
+}
+
+.btn-warning:hover,
+.btn-warning:focus,
+.btn-warning:active {
+    background-color: #ff8d4b;
+    color: rgb(0, 0, 0);
+    /* text-shadow: -1px 0 rgb(167, 166, 166), 0 1px rgb(133, 133, 133),
+        1px 0 rgb(170, 170, 170), 0 -1px rgb(148, 148, 148); */
 }
 </style>

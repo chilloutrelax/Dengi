@@ -2,7 +2,14 @@
     <div>
         <div>
             <div v-if="!loading">
-                <b-row>
+                <b-row class="mt-2 pr-3 pl-3 pb-3 modded-thing">
+                    <div class="col-12">
+                        <h6
+                            class="headline-user text-uppercase text-center font-weight-bold mt-2 pb-2"
+                        >
+                            KÕIK SISESTATUD ANDMED
+                        </h6>
+                    </div>
                     <b-col lg="6">
                         <b-form-group
                             label="Sorteeri"
@@ -350,3 +357,18 @@ export default {
     }
 };
 </script>
+
+<style scoped>
+.modded-thing {
+    background: #eecb6c9f;
+    background: -webkit-linear-gradient(top, #eecb6c9f, #fcfcfc);
+    background: -moz-linear-gradient(top, #eecb6c9f, #fcfcfc);
+    background: linear-gradient(to bottom, #eecb6c9f, #fcfcfc);
+}
+
+.headline-user {
+    color: black import !important;
+    text-shadow: 1px 1px 1px rgb(255, 255, 255);
+    padding: 20px 0 20px 0;
+}
+</style>

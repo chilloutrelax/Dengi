@@ -7,17 +7,10 @@
                 </div>
                 <div v-else>
                     <div>
-                        <div class="col-12">
-                            <h6
-                                class="text-muted text-uppercase text-center font-weight-bold mb-5"
-                            >
-                                KÕIK SISESTATUD ANDMED
-                            </h6>
-                        </div>
-                    </div>
-                    <div>
                         <div>
-                            <AllOverviewsList></AllOverviewsList>
+                            <AllOverviewsList
+                                class="mt-2 pr-3 pl-3"
+                            ></AllOverviewsList>
                         </div>
                     </div>
                 </div>

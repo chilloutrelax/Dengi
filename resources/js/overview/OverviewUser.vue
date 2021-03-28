@@ -1,10 +1,12 @@
 <template>
-    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 col-12 mb-5">
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 col-12">
         <!-- <div class="col-12"> -->
         <!-- <div class="col"> -->
         <div class="col-12">
-            <h6 class="text-muted text-uppercase text-center font-weight-bold">
-                SELLE KUU ANDMED
+            <h6
+                class="headline-user text-uppercase text-center font-weight-bold pt-2 pb-2"
+            >
+                KÄESOLEVA KUU ANDMED
             </h6>
         </div>
 
@@ -13,7 +15,7 @@
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 mb-3">
                     <div class="col-12">
                         <h6
-                            class="text-muted text-uppercase font-weight-bold pb-2"
+                            class="text-muted text-uppercase font-weight-bold pt-2"
                         >
                             Kasutaja andmed
                         </h6>
@@ -180,7 +182,13 @@ export default {
 }
 
 .modded-card {
-    /* border: 1px solid rgba(255, 68, 0, 0.267); */
-    background-color: rgba(226, 217, 207, 0.075);
+    border: none;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 87px 0 rgb(0 0 0 / 10%), 0 32px 20px -48px rgb(0 0 0 / 50%);
+}
+
+.headline-user {
+    color: black import !important;
+    text-shadow: 1px 1px 1px rgb(255, 255, 255);
 }
 </style>

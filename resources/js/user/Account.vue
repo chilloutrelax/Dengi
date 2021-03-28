@@ -1,9 +1,9 @@
 <template>
     <div>
         <div v-if="isLoggedIn">
-            <div class="d-flex justify-content-center m-auto">
+            <div class="d-flex justify-content-center m-auto backie">
                 <div
-                    class="col-12 col-sm-12 col-md-8 col-lg-6 col-xl-6 card card-body"
+                    class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4 card card-body mt-5 poopadi"
                 >
                     <h6
                         class="text-muted text-uppercase font-weight-bold text-center"
@@ -136,5 +136,22 @@ export default {
 .small-text {
     color: brown;
     font-size: 10px;
+}
+
+.poopadi {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.backie {
+    width: 100vw;
+    height: 100vh;
+    background: #eecb6c9f;
+    background: -webkit-linear-gradient(top, #eecb6c9f, #fcfcfc);
+    background: -moz-linear-gradient(top, #eecb6c9f, #fcfcfc);
+    background: linear-gradient(to bottom, #eecb6c9f, #fcfcfc);
 }
 </style>

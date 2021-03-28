@@ -180,6 +180,6 @@ export default {
 
 .table-hover tbody tr:hover td,
 .table-hover tbody tr:hover th {
-    background-color: #ffa57152;
+    background-color: #ffe9a891 !important;
 }
 </style>
