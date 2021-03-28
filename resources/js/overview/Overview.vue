@@ -27,7 +27,7 @@
 import OverviewUser from "./OverviewUser";
 import Loading from "../shared/loading/Loading";
 import OverviewCurrent from "./overviewLists/OverviewCurrent";
-import Welcome from "./welcome/Welcome";
+import Welcome from "./../welcome/Welcome";
 import { mapState } from "vuex";
 
 export default {

@@ -17069,4 +17069,8 @@ a.text-dark:focus {
   font-family: "Roboto", sans-serif;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 

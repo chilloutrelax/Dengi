@@ -30,21 +30,21 @@
                             class="nav-link text-uppercase text-muted font-weight-bold"
                             :to="{ name: 'register' }"
                         >
-                            <button class="btn btn-success btn-sm btn-block">
+                            <button class="btn btn-info btn-sm btn-block">
                                 Registreeri
                             </button>
                         </router-link>
                     </li>
                 </ul>
                 <ul class="navbar-nav" v-if="isLoggedIn">
-                    <li class="nav-item mr-3">
+                    <li class="nav-item mr-1">
                         <router-link
                             class="nav-link text-uppercase text-muted font-weight-bold"
                             :to="{ name: 'home' }"
                             >KÄESOLEV
                         </router-link>
                     </li>
-                    <li class="nav-item mr-3">
+                    <li class="nav-item mr-1">
                         <router-link
                             class="nav-link text-uppercase text-muted font-weight-bold"
                             :to="{ name: 'alloverviews' }"
@@ -53,7 +53,7 @@
                     </li>
                     <li>
                         <router-link
-                            class="nav-link mr-3 text-uppercase text-muted font-weight-bold"
+                            class="nav-link mr-1 text-uppercase text-muted font-weight-bold"
                             :to="{ name: 'account' }"
                         >
                             Konto
@@ -61,7 +61,6 @@
                     </li>
                     <li class="nav-item mt-1">
                         <a
-                            href="#"
                             class="btn btn-sm btn-warning"
                             @click.prevent="logout"
                             >Logi välja <i class="fas fa-sign-out-alt"></i
@@ -127,5 +126,9 @@ export default {
     color: rgb(0, 0, 0);
     /* text-shadow: -1px 0 rgb(167, 166, 166), 0 1px rgb(133, 133, 133),
         1px 0 rgb(170, 170, 170), 0 -1px rgb(148, 148, 148); */
+}
+
+.router-link-exact-active {
+    color: #d46829 !important;
 }
 </style>

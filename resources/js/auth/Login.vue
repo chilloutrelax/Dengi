@@ -1,67 +1,71 @@
 <template>
-    <div class="d-flex justify-content-center m-auto">
-        <div class="col-12 col-sm-12 col-md-8 col-lg-6 col-xl-6 card card-body">
-            <h5 class="text-uppercase text-muted text-center">
-                Sisselogimine
-            </h5>
-            <form>
-                <div class="form-group">
-                    <label for="username">Kasutajanimi</label>
-                    <input
-                        type="text"
-                        name="username"
-                        placeholder="Sisetage kasutajanimi"
-                        class="form-control"
-                        v-model="username"
-                        :class="[
-                            {
-                                'is-invalid': this.errors !== null
-                            }
-                        ]"
-                    />
-                    <!-- <ErrorComponent
+    <div class="backie">
+        <div class="d-flex justify-content-center m-auto">
+            <div
+                class="col-12 col-sm-12 col-md-8 col-lg-6 col-xl-6 card card-body mt-5"
+            >
+                <h5 class="text-uppercase text-muted text-center">
+                    Sisselogimine
+                </h5>
+                <form>
+                    <div class="form-group">
+                        <label for="username">Kasutajanimi</label>
+                        <input
+                            type="text"
+                            name="username"
+                            placeholder="Sisetage kasutajanimi"
+                            class="form-control"
+                            v-model="username"
+                            :class="[
+                                {
+                                    'is-invalid': this.errors !== null
+                                }
+                            ]"
+                        />
+                        <!-- <ErrorComponent
                         :errors="errorFor('username')"
                     ></ErrorComponent> -->
-                </div>
-                <div class="form-group">
-                    <label for="password">Parool</label>
-                    <input
-                        type="password"
-                        name="password"
-                        placeholder="Sisetage parool"
-                        class="form-control"
-                        v-model="password"
-                        :class="[{ 'is-invalid': this.errors }]"
-                    />
-                    <!-- <ErrorComponent
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Parool</label>
+                        <input
+                            type="password"
+                            name="password"
+                            placeholder="Sisetage parool"
+                            class="form-control"
+                            v-model="password"
+                            :class="[{ 'is-invalid': this.errors }]"
+                        />
+                        <!-- <ErrorComponent
                         :errors="errorFor('password')"
                     ></ErrorComponent> -->
-                </div>
-
-                <button
-                    class="btn btn-warning btn-md btn-block"
-                    :disabled="loading"
-                    type="submit"
-                    @click.prevent="login"
-                >
-                    Logi sisse
-                </button>
-
-                <div class="mt-4">
-                    Pole veel kasutaja?
-                    <router-link :to="{ name: 'register' }"
-                        ><b>Registreeri</b></router-link
-                    >
-                </div>
-
-                <div class="mt-4 mr-auto">
-                    <b class="text-primary ">Unustasid parooli?</b>
-                    <div>
-                        Parooli saamiseks saatke e-mail (dengi@riko.ee), koos
-                        enda nime ja kasutajanimega.
                     </div>
-                </div>
-            </form>
+
+                    <button
+                        class="btn btn-warning btn-md btn-block"
+                        :disabled="loading"
+                        type="submit"
+                        @click.prevent="login"
+                    >
+                        Logi sisse
+                    </button>
+
+                    <div class="mt-4">
+                        Pole veel kasutaja?
+                        <router-link :to="{ name: 'register' }"
+                            ><b>Registreeri</b></router-link
+                        >
+                    </div>
+
+                    <div class="mt-4 mr-auto">
+                        <b class="text-primary ">Unustasid parooli?</b>
+                        <div>
+                            Parooli saamiseks saatke e-mail (dengi@riko.ee),
+                            koos enda nime ja kasutajanimega.
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </template>
@@ -114,4 +118,12 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.backie {
+    background: #eecb6c9f;
+    background: -webkit-linear-gradient(top, #eecb6c9f, #fcfcfc);
+    background: -moz-linear-gradient(top, #eecb6c9f, #fcfcfc);
+    background: linear-gradient(to bottom, #eecb6c9f, #fcfcfc);
+    height: 100vh;
+}
+</style>

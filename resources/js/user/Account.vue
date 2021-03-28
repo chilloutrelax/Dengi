@@ -3,7 +3,7 @@
         <div v-if="isLoggedIn">
             <div class="d-flex justify-content-center m-auto backie">
                 <div
-                    class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4 card card-body mt-5 poopadi"
+                    class="col-10 col-sm-8 col-md-8 col-lg-4 col-xl-4 card card-body mt-5 poopadi modded-card"
                 >
                     <h6
                         class="text-muted text-uppercase font-weight-bold text-center"
@@ -85,9 +85,13 @@
             </div>
         </div>
         <div v-if="!isLoggedIn">
-            <div class="card">
-                <div class="card-body">
-                    Sa ei ole sisse logitud.
+            <div class="container mt-5">
+                <div class="row mt-4">
+                    <div class="col text-center fa-proov">
+                        <i class="fas fa-exclamation-circle"></i>
+                        Oi! Midagi läks valesti, minge tagasi
+                        <a href="/">esilehele</a>.
+                    </div>
                 </div>
             </div>
         </div>
@@ -153,5 +157,19 @@ export default {
     background: -webkit-linear-gradient(top, #eecb6c9f, #fcfcfc);
     background: -moz-linear-gradient(top, #eecb6c9f, #fcfcfc);
     background: linear-gradient(to bottom, #eecb6c9f, #fcfcfc);
+}
+
+.modded-card {
+    border: none;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 87px 0 rgb(0 0 0 / 10%), 0 32px 20px -48px rgb(0 0 0 / 50%);
+}
+.fa-exclamation-circle {
+    color: rgb(173, 21, 21);
+    font-size: 40px;
+}
+
+.fa-proov {
+    font-size: 15px;
 }
 </style>
