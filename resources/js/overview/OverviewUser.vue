@@ -28,8 +28,7 @@
                     </div>
                     <div class="col">
                         <span
-                            ><b>Kasutajanimi:</b>
-                            {{ $store.state.user.email }}</span
+                            ><b>E-mail:</b> {{ $store.state.user.email }}</span
                         >
                     </div>
 
