@@ -1,8 +1,8 @@
 <template>
     <div class="">
         <div class="header-sticky pt-1">
-            <h6 class="mr-auto versioon">Versioon:a0.1.40</h6>
             <nav class="navbar navbar-expand">
+                <h6 class="mr-auto versioon">Versioon:a0.1.41</h6>
                 <router-link
                     class="navbar-brand mr-auto"
                     :to="{ name: 'home' }"
@@ -40,9 +40,10 @@
                 <ul class="navbar-nav" v-if="isLoggedIn">
                     <li class="nav-item mr-1">
                         <router-link
-                            class="nav-link text-uppercase text-muted font-weight-bold"
+                            class="nav-link text-uppercase text-muted font-weight-bold "
                             :to="{ name: 'home' }"
-                            >KÄESOLEV
+                        >
+                            KÄESOLEV
                         </router-link>
                     </li>
                     <li class="nav-item mr-1">
@@ -134,8 +135,15 @@ export default {
 }
 .versioon {
     position: absolute;
-    bottom: -7px;
-    left: 23px;
+    bottom: 0px;
+    left: 55px;
     font-size: 10px;
+    color: rgb(235, 186, 141);
+}
+
+@media only screen and (max-width: 527px) {
+    .navbar-expand .navbar-nav .nav-link {
+        display: flex;
+    }
 }
 </style>

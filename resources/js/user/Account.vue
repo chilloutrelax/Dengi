@@ -25,36 +25,38 @@
                         </div>
                         <div class="created mb-2">
                             <b>Loodud:</b>
-                            <span>{{ $store.state.user.created_at }}</span>
+                            <span>{{
+                                $store.state.user.created_at | formatDate
+                            }}</span>
                         </div>
 
                         <br />
 
                         <div class="col">
-                            <button
+                            <!-- <button
                                 class="btn btn-secondary btn-sm btn-block"
                                 disabled
                             >
-                                Muuda parooli</button
-                            ><button
+                                Muuda parooli</button> -->
+                            <button
                                 class="btn btn-danger btn-sm btn-block"
                                 @click.prevent="deleteUser"
                             >
                                 Kustuta kasutaja
                             </button>
 
-                            <span>
+                            <!-- <span>
                                 <br />
                                 <h6
                                     class="small-text text-center text-uppercase font-weight-bold"
                                 >
                                     Hetkel nuppude funktsionaalsus ei tööta.
                                 </h6></span
-                            >
+                            > -->
                         </div>
                     </div>
 
-                    <b-modal v-model="showModal" hide-footer>
+                    <!-- <b-modal v-model="showModal" hide-footer>
                         <form>
                             <div class="col">
                                 <label for="newpass">Uus parool:</label>
@@ -75,19 +77,22 @@
                                 Muuda
                             </button>
                         </form>
-                    </b-modal>
+                    </b-modal> -->
                 </div>
             </div>
         </div>
         <div v-if="!isLoggedIn">
             <div class="backie">
-                <div class="container mt-5">
-                    <div class="row mt-4 padding-tops">
-                        <div class="col text-center fa-proov">
+                <div class="container">
+                    <div class="row padding-tops">
+                        <div class="col text-center fa-proov poopadi">
                             <i class="fas fa-exclamation-circle"></i>
-                            <h6>
-                                Olete kasutaja kustutanud. Vajutage siia, et
-                                liikuda tagasi <a href="/">esilehele</a>.
+                            <h6
+                                class="text-uppercase text-muted font-weight-bold"
+                            >
+                                Lehe nägemiseks logige palun sisse! <br />
+                                Vajutage siia, et minna
+                                <a href="/">esilehele</a>.
                             </h6>
                         </div>
                     </div>
@@ -172,7 +177,8 @@ export default {
 }
 .fa-exclamation-circle {
     color: rgb(173, 21, 21);
-    font-size: 40px;
+    font-size: 80px;
+    margin-bottom: 20px;
 }
 
 .fa-proov {

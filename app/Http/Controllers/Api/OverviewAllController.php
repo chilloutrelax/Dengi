@@ -18,7 +18,7 @@ class OverviewAllController extends Controller
     {
         // $AllUserData = Overview::all()->where('user_id', $id)->whereNull('delete_date')->orderBy('id', 'DESC')->get();
 
-        $AllUserData2 = Overview::where('user_id', "=", $id)->get();
+        $AllUserData2 = Overview::where('user_id', "=", $id)->where('delete_date', '=', NULL )->get();
         
         return $AllUserData2 ? response()->json([
             'data' => $AllUserData2,

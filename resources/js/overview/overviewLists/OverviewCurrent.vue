@@ -39,7 +39,7 @@
                             v-model="formdata.date_added"
                             button-only
                             right
-                            locale="en-US"
+                            locale="et"
                             aria-controls="overview-input-2"
                             class="mb-2"
                             :min="min"

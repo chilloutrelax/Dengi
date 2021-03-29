@@ -60,10 +60,10 @@
         <div class="container-fluid pt-5">
             <div class="container mobile-container-fix">
                 <div class="row">
-                    <div class="col-12">
-                        <div class="card">
+                    <div class="col-12 row">
+                        <div class="card col-sm-12 col-md-6 col-12">
                             <div class="card-body row">
-                                <div class="col-6">
+                                <div class="">
                                     <h6
                                         class="text-uppercase text-center text-muted font-weight-bold"
                                     >
@@ -94,43 +94,33 @@
                                         </p>
                                     </div>
                                 </div>
-
-                                <div class="col-6">
+                            </div>
+                        </div>
+                        <div class="card col-sm-12 col-md-6 col-12">
+                            <div class="card-body">
+                                <div class="">
                                     <h6
                                         class="text-uppercase text-center text-muted font-weight-bold"
                                     >
-                                        Kontakt
+                                        KONTAKTANDMED
                                     </h6>
-
-                                    <div class="col-12 mt-5">
-                                        <div class="row">
-                                            <div
-                                                class="col-sm-12 col-md-12 col-6"
-                                            >
-                                                <h6 class="font-weight-bold">
-                                                    Veebilehe haldaja/arendaja:
-                                                </h6>
-                                            </div>
-                                            <div
-                                                class="col-sm-12 col-md-12 col-6"
-                                            >
-                                                <h6>Riko Murutalu</h6>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div
-                                                class="col-sm-12 col-md-12 col-6"
-                                            >
-                                                <h6 class="font-weight-bold">
-                                                    Email:
-                                                </h6>
-                                            </div>
-                                            <div
-                                                class="col-sm-12 col-md-12 col-6"
-                                            >
-                                                <h6>dengi@riko.ee</h6>
-                                            </div>
-                                        </div>
+                                    <div class="col-12">
+                                        <p class="text-justify">
+                                            Küsimuste või ettepanekute osas
+                                            võite julgelt võtta ühendust.
+                                        </p>
+                                        <h6 class="font-weight-bold">
+                                            Rakenduse autor:
+                                        </h6>
+                                        <p class="text-justify">
+                                            Riko
+                                        </p>
+                                        <h6 class="font-weight-bold">
+                                            Kontakt:
+                                        </h6>
+                                        <p class="text-justify">
+                                            dengi@riko.ee
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -148,7 +138,7 @@
     background: -webkit-linear-gradient(top, #eecb6c9f, #fcfcfc);
     background: -moz-linear-gradient(top, #eecb6c9f, #fcfcfc);
     background: linear-gradient(to bottom, #eecb6c9f, #fcfcfc);
-    height: 100vh;
+    height: 100%;
 }
 
 .fixed-height {
@@ -164,6 +154,7 @@
 
 .card {
     border: none;
+    background: rgba(255, 255, 255, 0.432);
     box-shadow: 0 0 87px 0 rgb(0 0 0 / 10%), 0 32px 20px -48px rgb(0 0 0 / 50%);
 }
 
@@ -173,7 +164,7 @@
 }
 
 .carousel-caption {
-    background: #caac5b4d;
+    background: #4d3b0c4d;
     left: 0;
     right: 0;
     bottom: 0;
