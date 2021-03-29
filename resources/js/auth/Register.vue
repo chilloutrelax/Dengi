@@ -39,18 +39,7 @@
                             :class="[{ 'is-invalid': this.errors }]"
                         />
                     </div>
-                    <div class="form-group">
-                        <label for="username">Kasutajanimi</label>
-                        <input
-                            type="text"
-                            name="username"
-                            placeholder="Sisetage kasutajanimi"
-                            class="form-control"
-                            v-model="user.username"
-                            required
-                            :class="[{ 'is-invalid': this.errors }]"
-                        />
-                    </div>
+
                     <div class="form-group">
                         <label for="password">Parool</label>
                         <input
@@ -107,11 +96,10 @@ export default {
     data() {
         return {
             user: {
-                username: null,
+                email: null,
                 password: null,
                 password_confirmation: null,
-                name: null,
-                email: null
+                name: null
             },
             userData: null,
 

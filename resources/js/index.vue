@@ -1,6 +1,7 @@
 <template>
     <div class="">
         <div class="header-sticky pt-1">
+            <h6 class="mr-auto versioon">Versioon:a0.1.40</h6>
             <nav class="navbar navbar-expand">
                 <router-link
                     class="navbar-brand mr-auto"
@@ -130,5 +131,11 @@ export default {
 
 .router-link-exact-active {
     color: #d46829 !important;
+}
+.versioon {
+    position: absolute;
+    bottom: -7px;
+    left: 23px;
+    font-size: 10px;
 }
 </style>

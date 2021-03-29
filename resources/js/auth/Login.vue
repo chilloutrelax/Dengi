@@ -9,22 +9,19 @@
                 </h5>
                 <form>
                     <div class="form-group">
-                        <label for="username">Kasutajanimi</label>
+                        <label for="Email">E-mail</label>
                         <input
-                            type="text"
-                            name="username"
+                            type="email"
+                            name="email"
                             placeholder="Sisetage kasutajanimi"
                             class="form-control"
-                            v-model="username"
+                            v-model="email"
                             :class="[
                                 {
                                     'is-invalid': this.errors !== null
                                 }
                             ]"
                         />
-                        <!-- <ErrorComponent
-                        :errors="errorFor('username')"
-                    ></ErrorComponent> -->
                     </div>
                     <div class="form-group">
                         <label for="password">Parool</label>
@@ -78,7 +75,7 @@ export default {
     // mixins: [errorCatcher],
     data() {
         return {
-            username: null,
+            email: null,
             password: null,
             loading: false,
             errors: null,
@@ -93,7 +90,7 @@ export default {
             try {
                 await axios.get("/sanctum/csrf-cookie");
                 await axios.post("/login", {
-                    username: this.username,
+                    email: this.email,
                     password: this.password
                 });
 

@@ -29,7 +29,7 @@
                     <div class="col">
                         <span
                             ><b>Kasutajanimi:</b>
-                            {{ $store.state.user.username }}</span
+                            {{ $store.state.user.email }}</span
                         >
                     </div>
 

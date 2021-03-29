@@ -6,7 +6,6 @@ use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\OverviewController;
 use App\Http\Controllers\Api\OverviewTotalController;
 use App\Http\Controllers\Api\OverviewCurrentController;
-use App\Http\Controllers\Api\OverviewLastMonthController;
 use App\Http\Controllers\Api\OverviewBiggestMoneyController;
 
 

@@ -14,14 +14,11 @@
                     <br />
 
                     <div class="col">
-                        <div class="username mb-2">
+                        <div class="name mb-2">
                             <b>Nimi:</b>
                             <span>{{ $store.state.user.name }}</span>
                         </div>
-                        <div class="name mb-2">
-                            <b>Kasutajanimi:</b>
-                            <span>{{ $store.state.user.username }}</span>
-                        </div>
+
                         <div class="email mb-2">
                             <b>Email:</b>
                             <span>{{ $store.state.user.email }}</span>
@@ -42,7 +39,6 @@
                             ><button
                                 class="btn btn-danger btn-sm btn-block"
                                 @click.prevent="deleteUser"
-                                disabled
                             >
                                 Kustuta kasutaja
                             </button>
@@ -75,7 +71,6 @@
                                 @click.prevent="deleteUser"
                                 class="btn btn-block btn-warning"
                                 type="submit"
-                                disabled
                             >
                                 Muuda
                             </button>
@@ -85,12 +80,16 @@
             </div>
         </div>
         <div v-if="!isLoggedIn">
-            <div class="container mt-5">
-                <div class="row mt-4">
-                    <div class="col text-center fa-proov">
-                        <i class="fas fa-exclamation-circle"></i>
-                        Oi! Midagi läks valesti, minge tagasi
-                        <a href="/">esilehele</a>.
+            <div class="backie">
+                <div class="container mt-5">
+                    <div class="row mt-4 padding-tops">
+                        <div class="col text-center fa-proov">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <h6>
+                                Olete kasutaja kustutanud. Vajutage siia, et
+                                liikuda tagasi <a href="/">esilehele</a>.
+                            </h6>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -116,19 +115,26 @@ export default {
         deleteUser(e) {
             e.preventDefault();
             this.userid = this.$store.state.user.id;
-            this.username = this.$store.state.user.username;
+            this.name = this.$store.state.user.name;
 
-            confirm(
-                `Kas olete kindel, et soovite kustutada antud kasutaja: ${this.username}?`
+            const deleting = confirm(
+                `Kas olete kindel, et soovite kustutada antud kasutaja: ${this.name}?`
             );
+            if (deleting == true) {
+                axios
+                    .post("/api/users/delete/" + this.userid, {
+                        _method: "DELETE"
+                    })
+                    .then(response => {
+                        console.log(response);
+                    });
 
-            axios
-                .post("/api/users/delete/" + this.userid, {
-                    _method: "DELETE"
-                })
-                .then(response => {
-                    console.log(response);
-                });
+                axios.post("logout");
+                this.$store.dispatch("logout");
+            } else {
+                txt = "Tühistatud";
+                e.preventDefault();
+            }
 
             // location.reload();
         }

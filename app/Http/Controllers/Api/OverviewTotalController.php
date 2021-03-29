@@ -24,13 +24,10 @@ class OverviewTotalController extends Controller
         $expense = Overview::whereYear('created_at', Carbon::now()->year)
         ->whereMonth('created_at', Carbon::now()->month)->whereNull('delete_date')->where('type', 'Väljaminek')->where('user_id', $id)->sum('money');
 
-
-        
-        
         //return $data ? response()->json([]) : response()->json([], 404);
         return $income & $expense ? response()->json([
             'incomes' => $income,
-            'expenses' => $expense
+            'expenses' => $expense 
         ]) : response()->json([], 404);
         // return $expense ? response()->json($expense) : response()->json([], 404);
     }

@@ -104,22 +104,30 @@
 
                                     <div class="col-12 mt-5">
                                         <div class="row">
-                                            <div class="col-6">
+                                            <div
+                                                class="col-sm-12 col-md-12 col-6"
+                                            >
                                                 <h6 class="font-weight-bold">
                                                     Veebilehe haldaja/arendaja:
                                                 </h6>
                                             </div>
-                                            <div class="col-6">
+                                            <div
+                                                class="col-sm-12 col-md-12 col-6"
+                                            >
                                                 <h6>Riko Murutalu</h6>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-6">
+                                            <div
+                                                class="col-sm-12 col-md-12 col-6"
+                                            >
                                                 <h6 class="font-weight-bold">
                                                     Email:
                                                 </h6>
                                             </div>
-                                            <div class="col-6">
+                                            <div
+                                                class="col-sm-12 col-md-12 col-6"
+                                            >
                                                 <h6>dengi@riko.ee</h6>
                                             </div>
                                         </div>

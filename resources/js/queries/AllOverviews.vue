@@ -27,7 +27,6 @@
 </template>
 
 <script>
-import AllOverviewUser from "./AllOverviewsUser";
 import AllOverviewsList from "./AllOverviewsList/AllOverviewsList";
 import Loading from "./../shared/loading/Loading";
 
@@ -36,8 +35,7 @@ import { mapState } from "vuex";
 export default {
     components: {
         Loading,
-        AllOverviewsList,
-        AllOverviewUser
+        AllOverviewsList
     },
 
     data() {

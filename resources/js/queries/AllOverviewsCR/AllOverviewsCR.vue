@@ -371,4 +371,12 @@ export default {
     text-shadow: 1px 1px 1px rgb(255, 255, 255);
     padding: 20px 0 20px 0;
 }
+
+select {
+    border: none;
+}
+
+input {
+    border: none;
+}
 </style>
