@@ -9,38 +9,37 @@
                 </h5>
                 <form>
                     <div class="form-group">
-                        <div class="form-group">
-                            <label for="name"
-                                >Nimi
-                                <!-- <span class="font-weight-bold text-danger">*</span> -->
-                            </label>
-                            <input
-                                type="text"
-                                name="name"
-                                placeholder="Sisestage enda nimi"
-                                class="form-control"
-                                v-model="user.name"
-                                required
-                                :class="[{ 'is-invalid': this.errors }]"
-                            />
-                        </div>
+                        <label for="name"
+                            >Nimi
+                            <!-- <span class="font-weight-bold text-danger">*</span> -->
+                        </label>
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Sisestage enda nimi"
+                            class="form-control"
+                            v-model="user.name"
+                            required
+                            :class="[{ 'is-invalid': this.errors }]"
+                        />
+                    </div>
 
-                        <div class="form-group">
-                            <label for="name"
-                                >E-mail
-                                <!-- <span class="font-weight-bold text-danger">*</span> -->
-                            </label>
-                            <input
-                                type="email"
-                                name="email"
-                                placeholder="Sisestage enda e-mail"
-                                class="form-control"
-                                v-model="user.email"
-                                required
-                                :class="[{ 'is-invalid': this.errors }]"
-                            />
-                        </div>
-
+                    <div class="form-group">
+                        <label for="email"
+                            >E-mail
+                            <!-- <span class="font-weight-bold text-danger">*</span> -->
+                        </label>
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Sisestage enda e-mail"
+                            class="form-control"
+                            v-model="user.email"
+                            required
+                            :class="[{ 'is-invalid': this.errors }]"
+                        />
+                    </div>
+                    <div class="form-group">
                         <label for="username">Kasutajanimi</label>
                         <input
                             type="text"
